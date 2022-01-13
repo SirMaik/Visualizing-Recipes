@@ -1,0 +1,14 @@
+#worldMap {
+  background-color: #f2f2f2; /* lightcyan; */
+  outline: thin solid red;
+}
+
+#tooltip {
+  background-color: lightyellow;
+  outline: thin solid blue;
+  width: 255px; 
+  height: 380px;
+  font:12px/26px Georgia, Garamond, Serif;
+  overflow:auto;
+  padding:10px;
+}
