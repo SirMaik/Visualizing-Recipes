@@ -1,0 +1,152 @@
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <!-- load stylesheets-->
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static', filename='basestylesheet.css') }}" >
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static', filename='world_map.css') }}" >
+    <script src="https://d3js.org/d3.v7.min.js" charset="utf-8"></script>
+    
+    <title>VisBio Project</title>
+</head>
+
+<body>
+    <!-- load js file-->
+  <script src="{{ url_for('static', filename='base.js')}}"></script>
+    <!--create header-->
+  <header id="header">
+    <div class="container">
+      <div id= "title">
+        <h1> Recipe Analysis and Search</h1>
+      </div>
+    </div>
+  </header>
+ <!--create main part of website-->
+  <main>
+    <div class="navbar">
+      <nav>
+        <ul>
+          <li><a href="#background">Background</a></li>
+          <li><a href="#recipeSearch">Recipe Search</a></li>
+          <li><a href="#statisticPart">Statistic Part</a></li>
+          <li><a href="#title">Top</a></li>
+        </ul>
+      </nav>
+    </div>
+
+     
+    <div class="section">
+        <!--first visualization-->
+      <div class = "section-grid" id= "line">
+        <div id="block1">  
+         <!--inculde another template-->
+          {% include "world_map.html" %}
+        </div>
+        <div id="block2"  style= "width: 100%; height:auto;">
+          <h3>Worldmap cuisine overview</h3>
+        </div> 
+        <div  id="block3"  style= "width: 100%; height:auto;">
+          <p class= "large">
+            Click on a cuisine type to get the information for a spetific cuisine type.
+          </p>
+        </div> 
+      </div>
+      <!--second visualization-->
+      <div class = "section-grid">
+        <div id="block1"  style= "width: 100%; height:auto;">  
+          <p>Insert Treemap</p>
+          
+        </div>
+        <div id="block2"  style= "width: 100%; height:auto;">
+          <h3>Another overview vis</h3>
+        </div> 
+        <div  id="block3"  style= "width: 100%; height:auto;">
+          <p class= "large">
+            description....
+          </p>
+        </div> 
+      </div>
+    </div>
+
+    <div class="section-heading" id= "statisticPart">
+      <h1>Statistic Part</h1>
+    </div>
+
+    <div class= "section2">
+      <div class = "section-grid-statistic">
+        <div class="vis" id="vis1">
+            <!--3. visualization-->  
+          <p>stat visualisation 1</p>
+          <button class = "btn">+</button>
+        </div>
+        <div class="vis" id="vis2">
+            <!--4. visualization-->
+          <p>stat visualisation 2</p> 
+          <button class = "btn">+</button>       
+        </div> 
+        <div class="vis" id="vis3">
+            <!--5. visualization-->
+          <p>stat visualisation 3</p>
+          <button class = "btn">+</button>    
+        </div> 
+        <div  class="vis" id="vis4">
+            <!--6. visualization-->
+          <p>stat visualisation 4</p>
+          <button class = "btn">+</button>    
+        </div> 
+      </div>
+  
+    </div>
+
+    <div class="section-heading" id="recipeSearch">
+      <h1>Recipe Search</h1>
+    </div>
+    <div class= "section2">
+        <!--spaceholder for table-->
+      <div id= "searchTable">
+      </div>
+
+    </div>
+
+    <div class="section-heading" id= "background">
+      <h1 >Background</h1>
+    </div>
+
+    <div class= "section3">
+      <div class = "section-grid-background" id= "line">
+        <div id="backgroun1">  
+          <p class= "large">
+            Recipe Analysis and Search is based on the project work in the lecture Big Data Visual Analytics in Life Sciences by Prof. Dr. Michael Krone
+            at the Faculty of Science of Eberhard Karls University of Tübingen.
+          </p>
+          <p class = "large" style= "margin-top: 2rem;">
+            Together, we explore the data of the recipes from <a href = "https://www.food.com/"> Food.com</a>
+            . This project sheds light on the many facets of diffrent cuisines and ingredients of the recipes. 
+          </p>
+        </div>
+        <div id="background2">
+          <h4>Data</h4>
+          <p>In the course of this project, we analyzed hundreds of ingredients, recipeas and other recipe related terms. A good starting point was ... data source. 
+            More Info about the dataset....
+          </p>
+        </div> 
+        <div  id="background3">
+          <h4>Team</h4>
+          <p class= "teammember">Dittschar, Marina</p>
+          <p class= "teammember" >Ordonez, Miguel</p>
+          <p class= "teammember">Azan, Mehrin</p>
+          <p class= "teammember">Auckenthaler, Clarissa</p>
+        </div> 
+      </div>
+  
+    </div>
+  </main>
+  <footer>
+    <p>
+      <a href="http://www.freepik.com"> Background image designed by pikisuperstar / Freepik</a>
+    </p>
+  </footer>
+ 
+  
+</body>
+</html>
