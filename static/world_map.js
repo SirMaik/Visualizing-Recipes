@@ -56,7 +56,7 @@ let data = new Map()
 
 // Load external data and boot
 Promise.all([d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
-  d3.csv("data/countries.csv", 
+  d3.csv("https://raw.githubusercontent.com/SirMaik/Visualizing-Recipes/main/world_map/data/countries.csv", 
     function(d) {
       d["number_of_recipes"] = parseInt(d["number_of_recipes"]);
       data.set(d.code, d);
