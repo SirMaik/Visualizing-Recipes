@@ -102,8 +102,56 @@
       <h1>Recipe Search</h1>
     </div>
     <div class= "section2">
-        <!--spaceholder for table-->
+    <!-- create Search options-->
+      <div class= section-grid-search>
+        <div class= "searchInput" id= "cuisine">
+          <div  class= search>
+            <p class= "large">Cuisine</p>
+          </div>
+          <div class= search>
+            <input id="cuisineInput" type = "search" placeholder="Enter cuisine...">
+          </div>
+        </div>
+        <div class= "searchInput" id= "ingredient">
+          <div class= search>
+            <p class="large">Ingredient</p>
+          </div>
+          <div class= search>
+            <input id="ingredientInput" type = "search" placeholder="Enter ingredient...">
+          </div>  
+        </div>
+        <div class= "searchInput" id= "recipeTitle">
+          <div class= search>
+            <p class= "large"> Recipe Title </p>
+          </div>
+          <div class= search>
+            <input id="recipetitleInput" type = "search" placeholder=" Enter recipe title ....">
+          </div>
+        </div>
+      </div>
+      <button id= submitBtn  onclick="recipeSearch()"> Submit </button>
+
+      <div id= "line"> </div>
+
+      <div id= userSearch>
+        <p class= "large"> You are searching for:</p>
+        <div>
+          <div id= usercuisine> Cuisine: </div>
+          <div id= useringredient> Ingredient:  </div>
+          <div id= userrecipetitle> Recipe title: </div> 
+        </div>
+        <div>
+          <button id= "reset" > Reset Filter</button>
+        </div>
+      </div>
+        
       <div id= "searchTable">
+        <!--spaceholder for table-->
+      </div>
+      <!-- text overlay function TODO-->
+      <button onclick="on()">Turn on overlay effect</button>
+      <div id= "tableOverlay" onclick="off()">
+        <iframe  src=https://www.food.com/recipe/companys-coming-mashed-potatoes-474520 title="Companys-coming-mashed-potatoes" ></iframe>
       </div>
 
     </div>
