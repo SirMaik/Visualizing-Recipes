@@ -9,12 +9,20 @@ const zoom = d3.zoom()
   .on('zoom', handleZoom);
 
 // The svg
-const svg = d3.select("svg#worldMap")
+const svg = d3.select("#worldMap")
   .call(zoom);
 
 // Height and width
 const width = svg.attr("width");
 const height = svg.attr("height");
+
+// Map and projection
+let map = new Map()
+const path = d3.geoPath();
+const projection = d3.geoMercator()
+  .scale(80)
+  .center([0,20])
+  .translate([width / 2, height / 2 + 10]);
 
 // World map svg areas
 const worldMap = svg.append('g');
@@ -22,56 +30,83 @@ const legend = svg.append('g')
   .attr("class", "legend")
   .attr("transform", "translate(" + 100 + "," + 350 + ")");
 
-// Map and projection
-const path = d3.geoPath();
-const projection = d3.geoMercator()
-  .scale(80)
-  .center([0,20])
-  .translate([width / 2, height / 2 + 10]);
 
 // Tooltip
-const tooltip = d3.select("#tooltip")
+ let tooltip = d3.select("#worldBlock")
+  .append("div")
+  .attr("class", "tooltip")
+  .style("background-color", "rgba(255,255,255, 0.7)")
+  .style("border-radius", "5px")
+  .style("padding", "10px")
+  .style("position", "absolute")
+  .style("visibility", "hidden");
 
+// Function that extracts text into data
 function extractText(d) {
-  dict = data.get(d.id);
-  
-  if (!!dict) 
-    values = [dict["country"], dict["tag"], dict["number_of_recipes"]]
-  else
-    values = [d.properties.name, "Unavailable", "Unavailable"]
+  text = "Country: " + d.properties.name + "<br>";
+  text += "Code: " + d.id + "<br>";
 
-  text = "Country: " + values[0] + "<br>";
-  text += "Tag: " + values[1] + "<br>";
-  text += "Number of recipes: " + values[2];
+  country = map.get(d.id);
+  
+  if (!!country) {
+    text += "Tags with number of recipes:<br>";
+
+    for (entry of country["tags_with_number_of_recipes"]) {
+      text += "&nbsp&nbsp&nbsp&nbsp&#8226 " + entry["tag"] + ": " + entry["number_of_recipes"] + "<br>";
+    }
+
+    text += "Total number of recipes: " + country["total_number_of_recipes"];
+  }
+  else 
+    text += "No further information available";
 
   return text;
 }
 
-function whenClick(event, d) {
-  tooltip.html(extractText(d))
+function whileMouseOver(event, d) {
+  tooltip
+    .style("visibility", "visible")
+    .style("left", (event.clientX+5) + "px")
+    .style("top", (event.clientY+5) + "px")
+    .html(extractText(d));
 }
 
-// Data 
-let data = new Map()
+function whileMouseMove(event) {
+  tooltip
+    .style("left", (event.clientX+5) + "px")
+    .style("top", (event.clientY+5) + "px")
+}
+
+
+
+// Load data to map
+function loadData(jsonData) {
+  for (country of jsonData) {
+    var total_number_of_recipes = 0;
+    for (entry of country["tags_with_number_of_recipes"]) {
+      total_number_of_recipes += entry["number_of_recipes"];
+    }
+
+    country["total_number_of_recipes"] = total_number_of_recipes;
+
+    map.set(country["code"], country);
+  }
+}
 
 // Load external data and boot
 Promise.all([d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
-  d3.csv("https://raw.githubusercontent.com/SirMaik/Visualizing-Recipes/main/world_map/data/countries.csv", 
-    function(d) {
-      d["number_of_recipes"] = parseInt(d["number_of_recipes"]);
-      data.set(d.code, d);
+  d3.json("static/data/countries.json")
+  ]).then(function(jsonData){
+    let topo = jsonData[0];
 
-      return d;
-    })
-  ]).then(function(loadData){
-    let topo = loadData[0];
+    loadData(jsonData[1])
 
     // Min/Max
-    const minNumberOfRecipes = d3.min(data.values(), d => d["number_of_recipes"]);
-    const maxNumberOfRecipes = d3.max(data.values(), d => d["number_of_recipes"]);
+    const minNumberOfRecipes = d3.min(map.values(), d => d["total_number_of_recipes"]);
+    const maxNumberOfRecipes = d3.max(map.values(), d => d["total_number_of_recipes"]);
 
     // Color scale
-    const interpolators = [d3.interpolateYlGnBu, d3.interpolateRdPu, d3.interpolateYlGn, d3.interpolateYlOrBr, d3.interpolateViridis];
+    //const interpolators = [d3.interpolateYlGnBu, d3.interpolateRdPu, d3.interpolateYlGn, d3.interpolateYlOrBr, d3.interpolateViridis];
     const colorScale = d3.scaleSequentialLog(d3.interpolateViridis)
       .domain([minNumberOfRecipes, maxNumberOfRecipes]);
 
@@ -96,16 +131,19 @@ Promise.all([d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/
       )
       // set the color of each country
       .attr("fill", function (d) {
-        dict = data.get(d.id);
+        country = map.get(d.id);
 
-        if (!!dict)
-          d.total = dict["number_of_recipes"];
+        if (!!country)
+          d.total = country["total_number_of_recipes"];
         else
           d.total = 0;
 
-        return getColor(d.total);
+          return getColor(d.total); 
       })
-      .on("click", whenClick)
+      .on("mouseover", function(event, d){ whileMouseOver(event, d); } )
+      .on("mousemove", function(event){ whileMouseMove(event); } )
+      .on("mouseleave", function () {tooltip.style("visibility", "hidden");})
+
 
     // Legend
 
@@ -140,7 +178,7 @@ Promise.all([d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/
       .style("text-anchor", "middle")
     
     // Rest of the rectangles
-    values = [5, 25, 100, 500, 1000, 2500, 5000, 7500]
+    values = [5, 25, 75, 225, 650, 1000, 5500, 16500]
     
     rectangles = legend.selectAll("legend.rectangles")
       .data(values)

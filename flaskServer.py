@@ -15,10 +15,6 @@ def index():
 def base():
     return render_template('base.html')
 
-@app.route('/world_map')
-def world_map():
-    return render_template('world_map.html')
-
 
 if __name__ == '__main__':
    app.run(debug=True, port=5000)

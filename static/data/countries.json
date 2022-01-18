@@ -1,0 +1,796 @@
+[
+    {
+        "country": "Angola",
+        "code": "AGO",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "angolan",
+                "number_of_recipes": 13
+            }
+        ]
+    },
+    {
+        "country": "Argentina",
+        "code": "ARG",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "argentine",
+                "number_of_recipes": 123
+            }
+        ]
+    },
+    {
+        "country": "Australia",
+        "code": "AUS",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "australian",
+                "number_of_recipes": 2845
+            }
+        ]
+    },
+    {
+        "country": "Austria",
+        "code": "AUT",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "austrian",
+                "number_of_recipes": 170
+            }
+        ]
+    },
+    {
+        "country": "Belgium",
+        "code": "BEL",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "belgian",
+                "number_of_recipes": 165
+            }
+        ]
+    },
+    {
+        "country": "Brazil",
+        "code": "BRA",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "brazilian",
+                "number_of_recipes": 247
+            }
+        ]
+    },
+    {
+        "country": "Cambodia",
+        "code": "KHM",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "cambodian",
+                "number_of_recipes": 46
+            }
+        ]
+    },
+    {
+        "country": "Canada",
+        "code": "CAN",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "canadian",
+                "number_of_recipes": 4572
+            }
+        ]
+    },
+    {
+        "country": "Chile",
+        "code": "CHL",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "chilean",
+                "number_of_recipes": 76
+            }
+        ]
+    },
+    {
+        "country": "China",
+        "code": "CHN",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "chinese",
+                "number_of_recipes": 2008
+            }
+        ]
+    },
+    {
+        "country": "Colombia",
+        "code": "COL",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "colombian",
+                "number_of_recipes": 73
+            }
+        ]
+    },
+    {
+        "country": "Congo",
+        "code": "COG",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "congolese",
+                "number_of_recipes": 11
+            }
+        ]
+    },
+    {
+        "country": "Costa Rica",
+        "code": "CRI",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "costa-rican",
+                "number_of_recipes": 48
+            }
+        ]
+    },
+    {
+        "country": "Cuba",
+        "code": "CUB",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "cuban",
+                "number_of_recipes": 255
+            }
+        ]
+    },
+    {
+        "country": "Czech Republic",
+        "code": "CZE",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "czech",
+                "number_of_recipes": 136
+            }
+        ]
+    },
+    {
+        "country": "Denmark",
+        "code": "DNK",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "danish",
+                "number_of_recipes": 230
+            }
+        ]
+    },
+    {
+        "country": "Netherlands",
+        "code": "NLD",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "dutch",
+                "number_of_recipes": 224
+            }
+        ]
+    },
+    {
+        "country": "Ecuador",
+        "code": "ECU",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "ecuadorean",
+                "number_of_recipes": 37
+            }
+        ]
+    },
+    {
+        "country": "Egypt",
+        "code": "EGY",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "egyptian",
+                "number_of_recipes": 200
+            }
+        ]
+    },
+    {
+        "country": "Ethiopia",
+        "code": "ETH",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "ethiopian",
+                "number_of_recipes": 88
+            }
+        ]
+    },
+    {
+        "country": "Philippines",
+        "code": "PHL",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "filipino",
+                "number_of_recipes": 206
+            }
+        ]
+    },
+    {
+        "country": "England",
+        "code": "GBR",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "english",
+                "number_of_recipes": 1744
+            },
+            {
+                "tag": "scottish",
+                "number_of_recipes": 715
+            },
+            {
+                "tag": "welsh",
+                "number_of_recipes": 203
+            }
+        ]
+    },
+    {
+        "country": "Finland",
+        "code": "FIN",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "finnish",
+                "number_of_recipes": 171
+            }
+        ]
+    },
+    {
+        "country": "France",
+        "code": "FRA",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "french",
+                "number_of_recipes": 2268
+            }
+        ]
+    },
+    {
+        "country": "Georgia",
+        "code": "GEO",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "georgian",
+                "number_of_recipes": 17
+            }
+        ]
+    },
+    {
+        "country": "Germany",
+        "code": "DEU",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "german",
+                "number_of_recipes": 1377
+            }
+        ]
+    },
+    {
+        "country": "Greece",
+        "code": "GRC",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "greek",
+                "number_of_recipes": 2391
+            }
+        ]
+    },
+    {
+        "country": "Guatemala",
+        "code": "GTM",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "guatemalan",
+                "number_of_recipes": 34
+            }
+        ]
+    },
+    {
+        "country": "Honduras",
+        "code": "HND",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "honduran",
+                "number_of_recipes": 21
+            }
+        ]
+    },
+    {
+        "country": "Hungary",
+        "code": "HUN",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "hungarian",
+                "number_of_recipes": 317
+            }
+        ]
+    },
+    {
+        "country": "Iceland",
+        "code": "ISL",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "icelandic",
+                "number_of_recipes": 44
+            }
+        ]
+    },
+    {
+        "country": "India",
+        "code": "IND",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "indian",
+                "number_of_recipes": 2708
+            }
+        ]
+    },
+    {
+        "country": "Indonesia",
+        "code": "IDN",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "indonesian",
+                "number_of_recipes": 218
+            }
+        ]
+    },
+    {
+        "country": "Iraq",
+        "code": "IRQ",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "iraqi",
+                "number_of_recipes": 98
+            }
+        ]
+    },
+    {
+        "country": "Ireland",
+        "code": "IRL",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "irish",
+                "number_of_recipes": 658
+            }
+        ]
+    },
+    {
+        "country": "Italy",
+        "code": "ITA",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "italian",
+                "number_of_recipes": 7410
+            }
+        ]
+    },
+    {
+        "country": "Japan",
+        "code": "JPN",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "japanese",
+                "number_of_recipes": 851
+            }
+        ]
+    },
+    {
+        "country": "Republic of Korea",
+        "code": "PRK",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "korean",
+                "number_of_recipes": 253
+            }
+        ]
+    },
+    {
+        "country": "Lao People's Democratic Republic",
+        "code": "LAO",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "laotian",
+                "number_of_recipes": 16
+            }
+        ]
+    },
+    {
+        "country": "Lebanon",
+        "code": "LBN",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "lebanese",
+                "number_of_recipes": 308
+            }
+        ]
+    },
+    {
+        "country": "Libyan Arab Jamahiriya",
+        "code": "LBY",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "libyan",
+                "number_of_recipes": 40
+            }
+        ]
+    },
+    {
+        "country": "Malaysia",
+        "code": "MYS",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "malaysian",
+                "number_of_recipes": 119
+            }
+        ]
+    },
+    {
+        "country": "Mexico",
+        "code": "MEX",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "mexican",
+                "number_of_recipes": 6694
+            }
+        ]
+    },
+    {
+        "country": "Mongolia",
+        "code": "MNG",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "mongolian",
+                "number_of_recipes": 13
+            }
+        ]
+    },
+    {
+        "country": "Morocco",
+        "code": "MAR",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "moroccan",
+                "number_of_recipes": 897
+            }
+        ]
+    },
+    {
+        "country": "Namibia",
+        "code": "NAM",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "namibian",
+                "number_of_recipes": 6
+            }
+        ]
+    },
+    {
+        "country": "Nepal",
+        "code": "NPL",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "nepalese",
+                "number_of_recipes": 53
+            }
+        ]
+    },
+    {
+        "country": "New Zealand",
+        "code": "NZL",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "new-zealand",
+                "number_of_recipes": 645
+            }
+        ]
+    },
+    {
+        "country": "Nigeria",
+        "code": "NGA",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "nigerian",
+                "number_of_recipes": 38
+            }
+        ]
+    },
+    {
+        "country": "Norway",
+        "code": "NOR",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "norwegian",
+                "number_of_recipes": 199
+            }
+        ]
+    },
+    {
+        "country": "Pakistan",
+        "code": "PAK",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "pakistani",
+                "number_of_recipes": 141
+            }
+        ]
+    },
+    {
+        "country": "Palestine",
+        "code": "PSE",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "palestinian",
+                "number_of_recipes": 92
+            }
+        ]
+    },
+    {
+        "country": "Peru",
+        "code": "PER",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "peruvian",
+                "number_of_recipes": 121
+            }
+        ]
+    },
+    {
+        "country": "Poland",
+        "code": "POL",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "polish",
+                "number_of_recipes": 407
+            }
+        ]
+    },
+    {
+        "country": "French Polynesia",
+        "code": "PYF",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "polynesian",
+                "number_of_recipes": 203
+            }
+        ]
+    },
+    {
+        "country": "Portugal",
+        "code": "PRT",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "portuguese",
+                "number_of_recipes": 358
+            }
+        ]
+    },
+    {
+        "country": "Puerto Rico",
+        "code": "PRI",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "puerto-rican",
+                "number_of_recipes": 106
+            }
+        ]
+    },
+    {
+        "country": "Russia",
+        "code": "RUS",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "russian",
+                "number_of_recipes": 381
+            }
+        ]
+    },
+    {
+        "country": "Saudi Arabia",
+        "code": "SAU",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "saudi-arabian",
+                "number_of_recipes": 102
+            }
+        ]
+    },
+    {
+        "country": "Somalia",
+        "code": "SOM",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "somalian",
+                "number_of_recipes": 9
+            }
+        ]
+    },
+    {
+        "country": "South Africa",
+        "code": "ZAF",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "south-african",
+                "number_of_recipes": 324
+            }
+        ]
+    },
+    {
+        "country": "Spain",
+        "code": "ESP",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "spanish",
+                "number_of_recipes": 1072
+            }
+        ]
+    },
+    {
+        "country": "Sudan",
+        "code": "SDN",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "sudanese",
+                "number_of_recipes": 15
+            }
+        ]
+    },
+    {
+        "country": "Sweden",
+        "code": "SWE",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "swedish",
+                "number_of_recipes": 337
+            }
+        ]
+    },
+    {
+        "country": "Switzerland",
+        "code": "CHE",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "swiss",
+                "number_of_recipes": 375
+            }
+        ]
+    },
+    {
+        "country": "Thailand",
+        "code": "THA",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "thai",
+                "number_of_recipes": 1208
+            }
+        ]
+    },
+    {
+        "country": "Turkey",
+        "code": "TUR",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "turkish",
+                "number_of_recipes": 286
+            }
+        ]
+    },
+    {
+        "country": "USA",
+        "code": "USA",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "southern-united-states",
+                "number_of_recipes": 7114
+            },
+            {
+                "tag": "southwestern-united-states",
+                "number_of_recipes": 3536
+            },
+            {
+                "tag": "northeastern-united-states",
+                "number_of_recipes": 2566
+            },
+            {
+                "tag": "midwestern",
+                "number_of_recipes": 2884
+            },
+            {
+                "tag": "hawaiian",
+                "number_of_recipes": 444
+            }
+        ]
+    },
+    {
+        "country": "Venezuela",
+        "code": "VEN",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "venezuelan",
+                "number_of_recipes": 48
+            }
+        ]
+    },
+    {
+        "country": "Viet Nam",
+        "code": "VNM",
+        "tags_with_number_of_recipes":
+        [
+            {
+                "tag": "vietnamese",
+                "number_of_recipes": 351
+            }
+        ]
+    }
+]
