@@ -178,7 +178,7 @@ Promise.all([d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/
       .style("text-anchor", "middle")
     
     // Rest of the rectangles
-    values = [5, 25, 75, 225, 650, 1000, 5500, 16500]
+    values = [5, 25, 75, 225, 650, 2000, 5500, 16500]
     
     rectangles = legend.selectAll("legend.rectangles")
       .data(values)
