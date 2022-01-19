@@ -63,12 +63,25 @@ function extractText(d) {
   return text;
 }
 
-function whileMouseOver(event, d) {
+function whileMouseOver(event, d, country) {
   tooltip
     .style("visibility", "visible")
     .style("left", (event.clientX+5) + "px")
     .style("top", (event.clientY+5) + "px")
     .html(extractText(d));
+
+    d3.selectAll(".country")
+      .transition()
+      .duration(200)
+      .style("opacity", .7)
+      .style("stroke", "none");
+
+    country.transition()
+      .duration(200)
+      .style("opacity", 1)
+      .style("stroke", "black");
+
+      
 }
 
 function whileMouseMove(event) {
@@ -77,6 +90,15 @@ function whileMouseMove(event) {
     .style("top", (event.clientY+5) + "px")
 }
 
+function whileMouseOut() {
+  tooltip.style("visibility", "hidden");
+
+  d3.selectAll(".country")
+    .transition()
+    .duration(200)
+    .style("opacity", 1)
+    .style("stroke", "none");
+}
 
 
 // Load data to map
@@ -111,7 +133,7 @@ Promise.all([d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/
       .domain([minNumberOfRecipes, maxNumberOfRecipes]);
 
     // Coloring function
-    const zeroColor = d3.rgb(192,192,192)//d3.rgb(205,92,92);
+    const zeroColor = d3.rgb(192,192,192);
 
     function getColor(x) {
       if (x == 0)
@@ -125,6 +147,7 @@ Promise.all([d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/
     countries = worldMap.selectAll("countries")
       .data(topo.features)
       .join("path")
+      .attr("class", "country")
       // draw each country
       .attr("d", d3.geoPath()
         .projection(projection)
@@ -140,9 +163,9 @@ Promise.all([d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/
 
           return getColor(d.total); 
       })
-      .on("mouseover", function(event, d){ whileMouseOver(event, d); } )
+      .on("mouseover", function(event, d){ whileMouseOver(event, d, d3.select(this)); } )
       .on("mousemove", function(event){ whileMouseMove(event); } )
-      .on("mouseleave", function () {tooltip.style("visibility", "hidden");})
+      .on("mouseleave", whileMouseOut )
 
 
     // Legend
