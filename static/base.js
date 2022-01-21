@@ -9,8 +9,8 @@ const csvURL= "https://raw.githubusercontent.com/SirMaik/Visualizing-Recipes/mai
  d3.csv(csvURL).then(function (data) {
    //set columnames
     var columns = ['country','code','tag','number_of_recipes']
-    console.log(data);
-  //create table
+
+    //create table
     var table = d3.select('div#searchTable').append('table')
     var thead = table.append('thead')
     var tbody = table.append('tbody')

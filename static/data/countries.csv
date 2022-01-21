@@ -1,0 +1,69 @@
+country,code,tag,number_of_recipes
+Angola,AGO,angolan,13
+Argentina,ARG,argentine,123
+Australia,AUS,australian,2845
+Austria,AUT,austrian,170
+Belgium,BEL,belgian,165
+Brazil,BRA,brazilian,247
+Cambodia,KHM,cambodian,46
+Canada,CAN,canadian,4572
+Chile,CHL,chilean,76
+China,CHN,chinese,2008
+Colombia,COL,colombian,73
+Congo,COG,congolese,11
+Costa Rica,CRI,costa-rican,48
+Cuba,CUB,cuban,255
+Czech Republic,CZE,czech,136
+Denmark,DNK,danish,230
+Netherlands,NLD,dutch,224
+Ecuador,ECU,ecuadorean,37
+Egypt,EGY,egyptian,200
+Ethiopia,ETH,ethiopian,88
+Philippines,PHL,filipino,206
+Finland,FIN,finnish,171
+France,FRA,french,2268
+Georgia,GEO,georgian,17
+Germany,DEU,german,1377
+Greece,GRC,greek,2391
+Guatemala,GTM,guatemalan,34
+Honduras,HND,honduran,21
+Hungary,HUN,hungarian,317
+Iceland,ISL,icelandic,44
+India,IND,indian,2708
+Indonesia,IDN,indonesian,218
+Iraq,IRQ,iraqi,98
+Ireland,IRL,irish,658
+Italy,ITA,italian,7410
+Japan,JPN,japanese,851
+Republic of Korea,PRK,korean,253
+Lao People's Democratic Republic,LAO,laotian,16
+Lebanon,LBN,lebanese,308
+Libyan Arab Jamahiriya,LBY,libyan,40
+Malaysia,MYS,malaysian,119
+Mexico,MEX,mexican,6694
+Mongolia,MNG,mongolian,13
+Morocco,MAR,moroccan,897
+Namibia,NAM,namibian,6
+Nepal,NPL,nepalese,53
+New Zealand,NZL,new-zealand,645
+Nigeria,NGA,nigerian,38
+Norway,NOR,norwegian,199
+Pakistan,PAK,pakistani,141
+Palestine,PSE,palestinian,92
+Peru,PER,peruvian,121
+Poland,POL,polish,407
+French Polynesia,PYF,polynesian,203
+Portugal,PRT,portuguese,358
+Puerto Rico,PRI,puerto-rican,106
+Russia,RUS,russian,381
+Saudi Arabia,SAU,saudi-arabian,102
+Somalia,SOM,somalian,9
+South Africa,ZAF,south-african,324
+Spain,ESP,spanish,1072
+Sudan,SDN,sudanese,15
+Sweden,SWE,swedish,337
+Switzerland,CHE,swiss,375
+Thailand,THA,thai,1208
+Turkey,TUR,turkish,286
+Venezuela,VEN,venezuelan,48
+Viet Nam,VNM,vietnamese,351

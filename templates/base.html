@@ -38,9 +38,11 @@
     <div class="section">
         <!--first visualization-->
       <div class = "section-grid" id= "line">
-        <div id="block1">  
-         <!--inculde another template-->
-          {% include "world_map.html" %}
+        <div id="block1">
+          <div id="worldBlock"  width="650" height="400">
+            <svg id="worldMap" width="650" height="400"></svg>
+            <script src="{{ url_for('static', filename='world_map.js')}}"></script>
+          </div>
         </div>
         <div id="block2"  style= "width: 100%; height:auto;">
           <h3>Worldmap cuisine overview</h3>
