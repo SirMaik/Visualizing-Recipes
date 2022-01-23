@@ -4,9 +4,9 @@
 
 //Table Content
 //load dataset
-const csvURL= "https://raw.githubusercontent.com/SirMaik/Visualizing-Recipes/main/world_map/data/countries.csv";
+const csvPath= "static/data/countries.csv";
 
- d3.csv(csvURL).then(function (data) {
+d3.csv(csvPath).then(function (data) {
    //set columnames
     var columns = ['country','code','tag','number_of_recipes']
 
