@@ -1,6 +1,6 @@
-/*
-    @author Ordonez, Miguel
-*/
+
+const jsonPath= "static/data/countries.json";
+const geoURL  = "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson";
 
 // Zoom
 const handleZoom = (e) => worldMap.attr('transform', e.transform);
@@ -116,8 +116,8 @@ function loadData(jsonData) {
 }
 
 // Load external data and boot
-Promise.all([d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
-  d3.json("static/data/countries.json")
+Promise.all([d3.json(geoURL),
+  d3.json(jsonPath)
   ]).then(function(jsonData){
     let topo = jsonData[0];
 
