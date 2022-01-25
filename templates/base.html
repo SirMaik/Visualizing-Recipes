@@ -78,6 +78,7 @@
       <div class = "section-grid-statistic">
         <div class="vis" id="vis1">
           <div id= "top6">
+            <script src="{{ url_for('static', filename='bar_chart.js')}}"></script>
             <!-- Selectoption for pie chart-->
             <label for="data">Choose a country:</label>
             <select value = "world" id="data" name="countrylist"  onChange="getvalue()" >
@@ -152,8 +153,8 @@
 
         <div class="vis" id="vis2">
           <div id= "myPieChart">
-             <!--<script src="{{ url_for('static', filename='pie_chart.js')}}"></script>
-            Selectoption for pie chart-->
+            <script src="{{ url_for('static', filename='pie_chart.js')}}"></script>
+           <!-- Selectoption for pie chart-->
             <label for="data">Choose a country:</label>
             <select value = "world" id="data" name="countrylist"  onChange="getvalue()" >
               <option value="american">American</option>

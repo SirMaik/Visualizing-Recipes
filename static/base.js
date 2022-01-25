@@ -7,7 +7,7 @@
 const csvPath = "static/data/data_recipe_search.csv";
 const ingredientsPath = "static/data/ingredients_list.csv";
 
-
+/*
 Promise.all([d3.csv(csvPath),d3.csv(ingredientsPath)]).then(function (data) {
   // store country names in an array
   var c = [];
@@ -78,23 +78,8 @@ Promise.all([d3.csv(csvPath),d3.csv(ingredientsPath)]).then(function (data) {
 
   return table;
   
-})
+})*/
 
-  //search functions
-
-  function recipeSearch(){
-    var cuisine = document.getElementById("cuisineInput").value;
-    var ingredient = document.getElementById("ingredientInput").value;
-    var recipeTitle = document.getElementById("recipetitleInput").value;
-
-    document.getElementById("userSearch").style.display = "block"
-
-    //print filter options into html
-    document.getElementById("usercuisine").innerHTML += cuisine;
-    document.getElementById("useringredient").innerHTML += ingredient;
-    document.getElementById("userrecipetitle").innerHTML += recipeTitle;
-  }
-  
   // Overlay effect table
   function on() {
     document.getElementById("tableOverlay").style.display = "block";
