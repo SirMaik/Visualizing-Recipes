@@ -1,5 +1,5 @@
 
-const jsonPath= "static/data/countries.json";
+const jsonPath= "static/data/country-data.json";
 const geoURL  = "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson";
 
 // Zoom
@@ -17,7 +17,7 @@ const width = svg.attr("width");
 const height = svg.attr("height");
 
 // Map and projection
-let map = new Map()
+let map = new Map();
 const path = d3.geoPath();
 const projection = d3.geoMercator()
   .scale(80)
@@ -49,13 +49,13 @@ function extractText(d) {
   country = map.get(d.id);
   
   if (!!country) {
-    text += "Tags with number of recipes:<br>";
+    text += "Number of recipes: " + country["n_recipes"] + "<br>";
+    text += "Tags:";
 
-    for (entry of country["tags_with_number_of_recipes"]) {
-      text += "&nbsp&nbsp&nbsp&nbsp&#8226 " + entry["tag"] + ": " + entry["number_of_recipes"] + "<br>";
+    for (entry of country["tags"]) {
+      text += "<br>" + "&nbsp&nbsp&nbsp&nbsp&#8226 " + entry ;
     }
 
-    text += "Total number of recipes: " + country["total_number_of_recipes"];
   }
   else 
     text += "No further information available";
@@ -104,13 +104,6 @@ function whileMouseOut() {
 // Load data to map
 function loadData(jsonData) {
   for (country of jsonData) {
-    var total_number_of_recipes = 0;
-    for (entry of country["tags_with_number_of_recipes"]) {
-      total_number_of_recipes += entry["number_of_recipes"];
-    }
-
-    country["total_number_of_recipes"] = total_number_of_recipes;
-
     map.set(country["code"], country);
   }
 }
@@ -120,12 +113,11 @@ Promise.all([d3.json(geoURL),
   d3.json(jsonPath)
   ]).then(function(jsonData){
     let topo = jsonData[0];
-
+    
     loadData(jsonData[1])
-
     // Min/Max
-    const minNumberOfRecipes = d3.min(map.values(), d => d["total_number_of_recipes"]);
-    const maxNumberOfRecipes = d3.max(map.values(), d => d["total_number_of_recipes"]);
+    const minNumberOfRecipes = d3.min(map.values(), d => d["n_recipes"]);
+    const maxNumberOfRecipes = d3.max(map.values(), d => d["n_recipes"]);
 
     // Color scale
     //const interpolators = [d3.interpolateYlGnBu, d3.interpolateRdPu, d3.interpolateYlGn, d3.interpolateYlOrBr, d3.interpolateViridis];
@@ -157,7 +149,7 @@ Promise.all([d3.json(geoURL),
         country = map.get(d.id);
 
         if (!!country)
-          d.total = country["total_number_of_recipes"];
+          d.total = country["n_recipes"];
         else
           d.total = 0;
 
@@ -201,7 +193,7 @@ Promise.all([d3.json(geoURL),
       .style("text-anchor", "middle")
     
     // Rest of the rectangles
-    values = [5, 25, 75, 225, 650, 2000, 5500, 16500]
+    values = [5, 15, 50, 200, 750, 3000, 10000, 40000]
     
     rectangles = legend.selectAll("legend.rectangles")
       .data(values)
