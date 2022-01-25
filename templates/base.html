@@ -49,22 +49,22 @@
         </div> 
         <div  id="block3"  style= "width: 100%; height:auto;">
           <p class= "large">
-            Click on a cuisine type to get the information for a spetific cuisine type.
+            Hover the country you are interested in to get the information for a spetific cuisine type.
           </p>
         </div> 
       </div>
       <!--second visualization-->
       <div class = "section-grid">
         <div id="block1"  style= "width: 100%; height:auto;">  
-          <p>Insert Treemap</p>
+          <p>Mehrin's treemap</p>
           
         </div>
         <div id="block2"  style= "width: 100%; height:auto;">
-          <h3>Another overview vis</h3>
+          <h3>Overview over cusines and their ingredient categories</h3>
         </div> 
         <div  id="block3"  style= "width: 100%; height:auto;">
           <p class= "large">
-            description....
+            IMPORTANT: insert description.... 
           </p>
         </div> 
       </div>
@@ -77,79 +77,165 @@
     <div class= "section2">
       <div class = "section-grid-statistic">
         <div class="vis" id="vis1">
+          <div id= "top6">
+            <!-- Selectoption for pie chart-->
+            <label for="data">Choose a country:</label>
+            <select value = "world" id="data" name="countrylist"  onChange="getvalue()" >
+              <option value="american">American</option>
+              <option value="angolan">Angolan</option>
+              <option value="argentine">Argentine</option>
+              <option value="australian">Australian</option>
+              <option value="austrian">Austrian</option>
+              <option value="belgian">Belgian</option>
+              <option value="brazilian">Brazilian</option>
+              <option value="canadian">Canadian</option>
+              <option value="chilean">Chilean</option>
+              <option value="chinese">Chinese</option>
+              <option value="congolese">Congolese</option>
+              <option value="costa-rican">Costa-Rican</option>
+              <option value="cuban">Cuban</option>
+              <option value="czech">Czech</option>
+              <option value="danish">Danish</option>
+              <option value="dutch">Dutch</option>
+              <option value="ecuadorean">Ecuadorean</option>
+              <option value="egyptian">Egyptian</option>
+              <option value="english">English</option>
+              <option value="ethiopian">Ethiopian</option>
+              <option value="filipino">Filipino</option>
+              <option value="finnish">Finnish</option>
+              <option value="french">French</option>
+              <option value="german">German</option>
+              <option value="guatemalan">Guatemalan</option>
+              <option value="hungarian">Hungarian</option>
+              <option value="icelandic">Icelandic</option>
+              <option value="indian">Indian</option>
+              <option value="indonesian">Indonesian</option>
+              <option value="iranian-persian">Iranian-Persian</option>
+              <option value="iraqi">Iraqi</option>
+              <option value="irish">Irish</option>
+              <option value="italian">Italian</option>
+              <option value="japanese">Japanese</option>
+              <option value="korean">Korean</option>
+              <option value="laotian">Laotian</option>
+              <option value="lebanese">Lebanese</option>
+              <option value="libyan">Libyan</option>
+              <option value="malaysian">Malaysian</option>
+              <option value="mexican">Mexican</option>
+              <option value="mongolian">Mongolian</option>
+              <option value="moroccan">Moroccan</option>
+              <option value="namibian">Namibian</option>
+              <option value="nepalese">Nepalese</option>
+              <option value="new-zealand">New-Zealand</option>
+              <option value="nigerian">Nigerian</option>
+              <option value="norwegian">Norwegian</option>
+              <option value="pakistani">Pakistani</option>
+              <option value="peruvian">Peruvian</option>
+              <option value="polish">Polish</option>
+              <option value="portuguese">Portuguese</option>
+              <option value="puerto-rican">Puerto-Rican</option>
+              <option value="russian">Russian</option>
+              <option value="somalian">Somalian</option>
+              <option value="south-african">South-African</option>
+              <option value="spanish">Spanish</option>
+              <option value="sudanese">Sudanese</option>
+              <option value="swedish">Swedish</option>
+              <option value="swiss">Swiss</option>
+              <option value="thai">Thai</option>
+              <option value="turkish">Turkish</option>
+              <option value="vietnamese">Vietnamese</option>
+              <option value="world" selected >World data</option>
+            </select>      
+          </div>
             <!--3. visualization-->  
-          <p>stat visualisation 1</p>
-          <button class = "btn">+</button>
+          <p>Top 6 used ingredients</p>
         </div>
+
         <div class="vis" id="vis2">
+          <div id= "myPieChart">
+             <!--<script src="{{ url_for('static', filename='pie_chart.js')}}"></script>
+            Selectoption for pie chart-->
+            <label for="data">Choose a country:</label>
+            <select value = "world" id="data" name="countrylist"  onChange="getvalue()" >
+              <option value="american">American</option>
+              <option value="angolan">Angolan</option>
+              <option value="argentine">Argentine</option>
+              <option value="australian">Australian</option>
+              <option value="austrian">Austrian</option>
+              <option value="belgian">Belgian</option>
+              <option value="brazilian">Brazilian</option>
+              <option value="canadian">Canadian</option>
+              <option value="chilean">Chilean</option>
+              <option value="chinese">Chinese</option>
+              <option value="congolese">Congolese</option>
+              <option value="costa-rican">Costa-Rican</option>
+              <option value="cuban">Cuban</option>
+              <option value="czech">Czech</option>
+              <option value="danish">Danish</option>
+              <option value="dutch">Dutch</option>
+              <option value="ecuadorean">Ecuadorean</option>
+              <option value="egyptian">Egyptian</option>
+              <option value="english">English</option>
+              <option value="ethiopian">Ethiopian</option>
+              <option value="filipino">Filipino</option>
+              <option value="finnish">Finnish</option>
+              <option value="french">French</option>
+              <option value="german">German</option>
+              <option value="guatemalan">Guatemalan</option>
+              <option value="hungarian">Hungarian</option>
+              <option value="icelandic">Icelandic</option>
+              <option value="indian">Indian</option>
+              <option value="indonesian">Indonesian</option>
+              <option value="iranian-persian">Iranian-Persian</option>
+              <option value="iraqi">Iraqi</option>
+              <option value="irish">Irish</option>
+              <option value="italian">Italian</option>
+              <option value="japanese">Japanese</option>
+              <option value="korean">Korean</option>
+              <option value="laotian">Laotian</option>
+              <option value="lebanese">Lebanese</option>
+              <option value="libyan">Libyan</option>
+              <option value="malaysian">Malaysian</option>
+              <option value="mexican">Mexican</option>
+              <option value="mongolian">Mongolian</option>
+              <option value="moroccan">Moroccan</option>
+              <option value="namibian">Namibian</option>
+              <option value="nepalese">Nepalese</option>
+              <option value="new-zealand">New-Zealand</option>
+              <option value="nigerian">Nigerian</option>
+              <option value="norwegian">Norwegian</option>
+              <option value="pakistani">Pakistani</option>
+              <option value="peruvian">Peruvian</option>
+              <option value="polish">Polish</option>
+              <option value="portuguese">Portuguese</option>
+              <option value="puerto-rican">Puerto-Rican</option>
+              <option value="russian">Russian</option>
+              <option value="somalian">Somalian</option>
+              <option value="south-african">South-African</option>
+              <option value="spanish">Spanish</option>
+              <option value="sudanese">Sudanese</option>
+              <option value="swedish">Swedish</option>
+              <option value="swiss">Swiss</option>
+              <option value="thai">Thai</option>
+              <option value="turkish">Turkish</option>
+              <option value="vietnamese">Vietnamese</option>
+              <option value="world" selected >World data</option>
+            </select>      
+          </div>
             <!--4. visualization-->
-          <p>stat visualisation 2</p> 
-          <button class = "btn">+</button>       
+          <p>Procentage of vegan and vegetarian recipes</p>      
         </div> 
         <div class="vis" id="vis3">
             <!--5. visualization-->
-          <p>stat visualisation 3</p>
-          <button class = "btn">+</button>    
+          <p> Marina's bubblechart</p>   
         </div> 
         <div  class="vis" id="vis4">
             <!--6. visualization-->
-          <p>stat visualisation 4</p>
-          <button class = "btn">+</button>    
+          <p>Miguel's ingredient intercation</p>  
         </div> 
       </div>
   
     </div>
-
-    <div class="section-heading" id="recipeSearch">
-      <h1>Recipe Search</h1>
-    </div>
-    <div class= "section2">
-    <!-- create Search options-->
-      <div class= section-grid-search>
-        <div class= "searchInput" id= "cuisine">
-          <div  class= search>
-            <p class= "large">Cuisine</p>
-          </div>
-          <div class= search>
-            <input id="cuisineInput" type = "search" placeholder="Enter cuisine...">
-          </div>
-        </div>
-        <div class= "searchInput" id= "ingredient">
-          <div class= search>
-            <p class="large">Ingredient</p>
-          </div>
-          <div class= search>
-            <input id="ingredientInput" type = "search" placeholder="Enter ingredient...">
-          </div>  
-        </div>
-        <div class= "searchInput" id= "recipeTitle">
-          <div class= search>
-            <p class= "large"> Recipe Title </p>
-          </div>
-          <div class= search>
-            <input id="recipetitleInput" type = "search" placeholder=" Enter recipe title ....">
-          </div>
-        </div>
-      </div>
-      <button id= submitBtn  onclick="recipeSearch()"> Submit </button>
-
-      <div id= "line"> </div>
-
-      <div id= userSearch>
-        <p class= "large"> You are searching for:</p>
-        <div>
-          <div id= usercuisine> Cuisine: </div>
-          <div id= useringredient> Ingredient:  </div>
-          <div id= userrecipetitle> Recipe title: </div> 
-        </div>
-        <div>
-          <button id= "reset" > Reset Filter</button>
-        </div>
-      </div>
-
-      <!--  Placeholder table-->
-      <div id= "searchTable"></div>
-      <!-- overlay-->
+      <!-- overlay maybe add to the vis to get more informations-->
       <div id= "tableOverlay" onclick="off()">
         <iframe id="myframe" src=https://www.food.com title="recipe details" ></iframe>
       </div>
