@@ -53,7 +53,7 @@
     
     if (!!country) {
       text += "Number of recipes: " + country["n_recipes"] + "<br>";
-      text += "Tags:";
+      text += "Cuisines:";
 
       for (entry of country["tags"]) {
         text += "<br>" + "&nbsp&nbsp&nbsp&nbsp&#8226 " + entry ;

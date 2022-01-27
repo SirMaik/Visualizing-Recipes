@@ -47,7 +47,7 @@
 
 
         const svg = d3
-            .select("#block1")
+            .select("#chord")
             .append("svg")
             .attr("width", width)
             .attr("height", height)
