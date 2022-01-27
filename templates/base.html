@@ -17,7 +17,7 @@
   <header id="header">
     <div class="container">
       <div id= "title">
-        <h1> Recipe Analysis and Search</h1>
+        <h1> Recipe Analysis</h1>
       </div>
     </div>
   </header>
@@ -38,7 +38,7 @@
         <!--first visualization-->
       <div class = "section-grid" id= "line">
         <div id="block1">
-          <div id="worldBlock"  width="650" height="400">
+          <div id="worldBlock" >
             <svg id="worldMap" width="650" height="400"></svg>
             <script src="{{ url_for('static', filename='world_map.js')}}"></script>
           </div>
@@ -75,165 +75,170 @@
 
     <div class= "section2">
       <div class = "section-grid-statistic">
+         <!--Clarissa's Bar-Chart visualization--> 
         <div class="vis" id="vis1">
-          <div id= "top6">
-            
-            <!-- Selectoption for bar chart-->
-            <select value = "world" id="data_bar" name="countrylist"  onChange="drawBar ();"  >
-              <option value="american">American</option>
-              <option value="angolan">Angolan</option>
-              <option value="argentine">Argentine</option>
-              <option value="australian">Australian</option>
-              <option value="austrian">Austrian</option>
-              <option value="belgian">Belgian</option>
-              <option value="brazilian">Brazilian</option>
-              <option value="canadian">Canadian</option>
-              <option value="chilean">Chilean</option>
-              <option value="chinese">Chinese</option>
-              <option value="congolese">Congolese</option>
-              <option value="costa-rican">Costa-Rican</option>
-              <option value="cuban">Cuban</option>
-              <option value="czech">Czech</option>
-              <option value="danish">Danish</option>
-              <option value="dutch">Dutch</option>
-              <option value="ecuadorean">Ecuadorean</option>
-              <option value="egyptian">Egyptian</option>
-              <option value="english">English</option>
-              <option value="ethiopian">Ethiopian</option>
-              <option value="filipino">Filipino</option>
-              <option value="finnish">Finnish</option>
-              <option value="french">French</option>
-              <option value="german">German</option>
-              <option value="guatemalan">Guatemalan</option>
-              <option value="hungarian">Hungarian</option>
-              <option value="icelandic">Icelandic</option>
-              <option value="indian">Indian</option>
-              <option value="indonesian">Indonesian</option>
-              <option value="iranian-persian">Iranian-Persian</option>
-              <option value="iraqi">Iraqi</option>
-              <option value="irish">Irish</option>
-              <option value="italian">Italian</option>
-              <option value="japanese">Japanese</option>
-              <option value="korean">Korean</option>
-              <option value="laotian">Laotian</option>
-              <option value="lebanese">Lebanese</option>
-              <option value="libyan">Libyan</option>
-              <option value="malaysian">Malaysian</option>
-              <option value="mexican">Mexican</option>
-              <option value="mongolian">Mongolian</option>
-              <option value="moroccan">Moroccan</option>
-              <option value="namibian">Namibian</option>
-              <option value="nepalese">Nepalese</option>
-              <option value="new-zealand">New-Zealand</option>
-              <option value="nigerian">Nigerian</option>
-              <option value="norwegian">Norwegian</option>
-              <option value="pakistani">Pakistani</option>
-              <option value="peruvian">Peruvian</option>
-              <option value="polish">Polish</option>
-              <option value="portuguese">Portuguese</option>
-              <option value="puerto-rican">Puerto-Rican</option>
-              <option value="russian">Russian</option>
-              <option value="somalian">Somalian</option>
-              <option value="south-african">South-African</option>
-              <option value="spanish">Spanish</option>
-              <option value="sudanese">Sudanese</option>
-              <option value="swedish">Swedish</option>
-              <option value="swiss">Swiss</option>
-              <option value="thai">Thai</option>
-              <option value="turkish">Turkish</option>
-              <option value="vietnamese">Vietnamese</option>
-              <option value="world" selected >World data</option>
-            </select> 
-            <div id="top6">
-              <script src="{{ url_for('static', filename='bar_chart.js')}}"></script>
-            </div>     
-          </div>
-            <!--3. visualization-->  
-          <p>Top 6 used ingredients</p>
+           <!-- Selectoption for bar chart-->
+          <select value = "world" id="data_bar" name="countrylist"  onChange="drawBar ();"  >
+            <option value="american">American</option>
+            <option value="angolan">Angolan</option>
+            <option value="argentine">Argentine</option>
+            <option value="australian">Australian</option>
+            <option value="austrian">Austrian</option>
+            <option value="belgian">Belgian</option>
+            <option value="brazilian">Brazilian</option>
+            <option value="canadian">Canadian</option>
+            <option value="chilean">Chilean</option>
+            <option value="chinese">Chinese</option>
+            <option value="congolese">Congolese</option>
+            <option value="costa-rican">Costa-Rican</option>
+            <option value="cuban">Cuban</option>
+            <option value="czech">Czech</option>
+            <option value="danish">Danish</option>
+            <option value="dutch">Dutch</option>
+            <option value="ecuadorean">Ecuadorean</option>
+            <option value="egyptian">Egyptian</option>
+            <option value="english">English</option>
+            <option value="ethiopian">Ethiopian</option>
+            <option value="filipino">Filipino</option>
+            <option value="finnish">Finnish</option>
+            <option value="french">French</option>
+            <option value="german">German</option>
+            <option value="guatemalan">Guatemalan</option>
+            <option value="hungarian">Hungarian</option>
+            <option value="icelandic">Icelandic</option>
+            <option value="indian">Indian</option>
+            <option value="indonesian">Indonesian</option>
+            <option value="iranian-persian">Iranian-Persian</option>
+            <option value="iraqi">Iraqi</option>
+            <option value="irish">Irish</option>
+            <option value="italian">Italian</option>
+            <option value="japanese">Japanese</option>
+            <option value="korean">Korean</option>
+            <option value="laotian">Laotian</option>
+            <option value="lebanese">Lebanese</option>
+            <option value="libyan">Libyan</option>
+            <option value="malaysian">Malaysian</option>
+            <option value="mexican">Mexican</option>
+            <option value="mongolian">Mongolian</option>
+            <option value="moroccan">Moroccan</option>
+            <option value="namibian">Namibian</option>
+            <option value="nepalese">Nepalese</option>
+            <option value="new-zealand">New-Zealand</option>
+            <option value="nigerian">Nigerian</option>
+            <option value="norwegian">Norwegian</option>
+            <option value="pakistani">Pakistani</option>
+            <option value="peruvian">Peruvian</option>
+            <option value="polish">Polish</option>
+            <option value="portuguese">Portuguese</option>
+            <option value="puerto-rican">Puerto-Rican</option>
+            <option value="russian">Russian</option>
+            <option value="somalian">Somalian</option>
+            <option value="south-african">South-African</option>
+            <option value="spanish">Spanish</option>
+            <option value="sudanese">Sudanese</option>
+            <option value="swedish">Swedish</option>
+            <option value="swiss">Swiss</option>
+            <option value="thai">Thai</option>
+            <option value="turkish">Turkish</option>
+            <option value="vietnamese">Vietnamese</option>
+            <option value="world" selected >World data</option>
+          </select> 
+          <div id="top6">
+            <script src="{{ url_for('static', filename='bar_chart.js')}}"></script>
+          </div>       
+          <p class="large">Top 6 used ingredients for selected country</p>
         </div>
-
+       
         <div class="vis" id="vis2">
-           <!-- Selectoption for pie chart-->
-            <select value = "world" id="data_pie" name="countrylist"  onChange="update();" >
-              <option value="USA" selected >American</option>
-              <option value="angolan">Angolan</option>
-              <option value="argentine">Argentine</option>
-              <option value="australian">Australian</option>
-              <option value="austrian">Austrian</option>
-              <option value="belgian">Belgian</option>
-              <option value="brazilian">Brazilian</option>
-              <option value="canadian">Canadian</option>
-              <option value="chilean">Chilean</option>
-              <option value="chinese">Chinese</option>
-              <option value="congolese">Congolese</option>
-              <option value="costa-rican">Costa-Rican</option>
-              <option value="cuban">Cuban</option>
-              <option value="czech">Czech</option>
-              <option value="danish">Danish</option>
-              <option value="dutch">Dutch</option>
-              <option value="ecuadorean">Ecuadorean</option>
-              <option value="egyptian">Egyptian</option>
-              <option value="english">English</option>
-              <option value="ethiopian">Ethiopian</option>
-              <option value="filipino">Filipino</option>
-              <option value="finnish">Finnish</option>
-              <option value="french">French</option>
-              <option value="german">German</option>
-              <option value="guatemalan">Guatemalan</option>
-              <option value="hungarian">Hungarian</option>
-              <option value="icelandic">Icelandic</option>
-              <option value="indian">Indian</option>
-              <option value="indonesian">Indonesian</option>
-              <option value="iranian-persian">Iranian-Persian</option>
-              <option value="iraqi">Iraqi</option>
-              <option value="irish">Irish</option>
-              <option value="italian">Italian</option>
-              <option value="japanese">Japanese</option>
-              <option value="korean">Korean</option>
-              <option value="laotian">Laotian</option>
-              <option value="lebanese">Lebanese</option>
-              <option value="libyan">Libyan</option>
-              <option value="malaysian">Malaysian</option>
-              <option value="mexican">Mexican</option>
-              <option value="mongolian">Mongolian</option>
-              <option value="moroccan">Moroccan</option>
-              <option value="namibian">Namibian</option>
-              <option value="nepalese">Nepalese</option>
-              <option value="new-zealand">New-Zealand</option>
-              <option value="nigerian">Nigerian</option>
-              <option value="norwegian">Norwegian</option>
-              <option value="pakistani">Pakistani</option>
-              <option value="peruvian">Peruvian</option>
-              <option value="polish">Polish</option>
-              <option value="portuguese">Portuguese</option>
-              <option value="puerto-rican">Puerto-Rican</option>
-              <option value="russian">Russian</option>
-              <option value="somalian">Somalian</option>
-              <option value="south-african">South-African</option>
-              <option value="spanish">Spanish</option>
-              <option value="sudanese">Sudanese</option>
-              <option value="swedish">Swedish</option>
-              <option value="swiss">Swiss</option>
-              <option value="thai">Thai</option>
-              <option value="turkish">Turkish</option>
-              <option value="vietnamese">Vietnamese</option>
-              <option value="world"  >World data</option>
-            </select> 
-            <div id= "myPieChart"></div>  
-            <script src="{{ url_for('static', filename='pie_chart.js')}}"></script>   
-          </div>
-            <!--4. visualization-->
-          <p>Procentage of vegan and vegetarian recipes</p>      
+        <!-- Selectoption for pie chart-->
+           <select value = "world" id="data_pie" name="countrylist"  onChange="update();" >
+            <option value="american"  >American</option>
+            <option value="angolan">Angolan</option>
+            <option value="argentine">Argentine</option>
+            <option value="australian">Australian</option>
+            <option value="austrian">Austrian</option>
+            <option value="belgian">Belgian</option>
+            <option value="brazilian">Brazilian</option>
+            <option value="canadian">Canadian</option>
+            <option value="chilean">Chilean</option>
+            <option value="chinese">Chinese</option>
+            <option value="congolese">Congolese</option>
+            <option value="costa-rican">Costa-Rican</option>
+            <option value="cuban">Cuban</option>
+            <option value="czech">Czech</option>
+            <option value="danish">Danish</option>
+            <option value="dutch">Dutch</option>
+            <option value="ecuadorean">Ecuadorean</option>
+            <option value="egyptian">Egyptian</option>
+            <option value="english">English</option>
+            <option value="ethiopian">Ethiopian</option>
+            <option value="filipino">Filipino</option>
+            <option value="finnish">Finnish</option>
+            <option value="french">French</option>
+            <option value="german">German</option>
+            <option value="guatemalan">Guatemalan</option>
+            <option value="hungarian">Hungarian</option>
+            <option value="icelandic">Icelandic</option>
+            <option value="indian">Indian</option>
+            <option value="indonesian">Indonesian</option>
+            <option value="iranian-persian">Iranian-Persian</option>
+            <option value="iraqi">Iraqi</option>
+            <option value="irish">Irish</option>
+            <option value="italian">Italian</option>
+            <option value="japanese">Japanese</option>
+            <option value="korean">Korean</option>
+            <option value="laotian">Laotian</option>
+            <option value="lebanese">Lebanese</option>
+            <option value="libyan">Libyan</option>
+            <option value="malaysian">Malaysian</option>
+            <option value="mexican">Mexican</option>
+            <option value="mongolian">Mongolian</option>
+            <option value="moroccan">Moroccan</option>
+            <option value="namibian">Namibian</option>
+            <option value="nepalese">Nepalese</option>
+            <option value="new-zealand">New-Zealand</option>
+            <option value="nigerian">Nigerian</option>
+            <option value="norwegian">Norwegian</option>
+            <option value="pakistani">Pakistani</option>
+            <option value="peruvian">Peruvian</option>
+            <option value="polish">Polish</option>
+            <option value="portuguese">Portuguese</option>
+            <option value="puerto-rican">Puerto-Rican</option>
+            <option value="russian">Russian</option>
+            <option value="somalian">Somalian</option>
+            <option value="south-african">South-African</option>
+            <option value="spanish">Spanish</option>
+            <option value="sudanese">Sudanese</option>
+            <option value="swedish">Swedish</option>
+            <option value="swiss">Swiss</option>
+            <option value="thai">Thai</option>
+            <option value="turkish">Turkish</option>
+            <option value="vietnamese">Vietnamese</option>
+            <option value="world" selected >World data</option>
+          </select> 
+          <div id= "myPieChart">
+            <script src="{{ url_for('static', filename='pie_chart.js')}}"></script>  
+          </div> 
+          
+          <p class= "large">Types of recipes: Procentage of vegan, vegetarian and non type recipes for selected country</p>   
         </div> 
+        <!--Marina's  visualization-->
         <div class="vis" id="vis3">
-            <!--5. visualization-->
-          <p> Marina's bubblechart</p>   
+          <div>
+           
+          </div>
+            
+        <p> Marina's bubblechart</p>   
         </div> 
+      <!--Miguel's visualization-->
         <div  class="vis" id="vis4">
-            <!--6. visualization-->
-          <p>Miguel's ingredient intercation</p>  
+           
+        <p>Miguel's ingredient intercation</p>  
         </div> 
-      </div>
+        </div> 
+
+       
+    </div>
   
     </div>
       <!-- overlay maybe add to the vis to get more informations-->

@@ -34,13 +34,16 @@ function drawBar (){
             .range([ 0, w ])
             .domain(data.map(d => d.ingredients))
             .padding(0.2);
+            
 
         svg_top6.append("g")
             .attr("transform", `translate(0, ${h })`)
             .call(d3.axisBottom(x))
             .selectAll("text")
                 .attr("transform", "translate(-10,0)rotate(-45)")
-                .style("text-anchor", "end");
+                .style("text-anchor", "end")
+                .style("textsize","20px");
+                
         // Add Y axis
         const y = d3.scaleLinear()
             .domain([ 0, 16000]) //replace with min and max value 
@@ -53,17 +56,27 @@ function drawBar (){
             .data(data)
             .enter()
             .append("rect")
+                //.transition()
+                //.duration(1000)
                 .attr("x", d => x(d.ingredients))
                 .attr("y", d => y(d.ingredient_counts))
                 .attr("width", x.bandwidth())
                 .attr("height", d => h  - y(d.ingredient_counts))
-                .attr("fill", "#69b3a2")
+                .attr("fill", "#14c967")
+               
+                .on("mouseover",function(){d3.select(this)
+                    .style("opacity", "0.6");
+                    
+                })
+                .on("mouseout",function(){d3.select(this)
+                    .style("opacity", "1");
+                })
+
+        //TO DO!!
+        .call(rect => rect.append("title")
+            .text(d => ["Counts"+ d.country ]
+            .join("\n")));
         
-        d3.select('#data_bar')
-            .on("Change", d =>{
-                console.log(d)
-             
-          })
     })
 
 }
