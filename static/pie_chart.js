@@ -1,4 +1,4 @@
-const piePath= "static/data/country-data.json";
+{const piePath= "static/data/country-data.json";
 
 const w_pie = 200,
 h_pie = 200,
@@ -129,4 +129,4 @@ function update() {
     })   
 }
 update()
-
+}

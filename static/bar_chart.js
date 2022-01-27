@@ -1,4 +1,4 @@
-//console.log(jsonPath)
+{//console.log(jsonPath)
 const top6Path= "static/data/top6_ingredients.json";
 
 // set the dimensions and margins of the graph
@@ -14,6 +14,33 @@ const svg_top6 = d3.select("#top6")
   .append("g")
     .attr("transform", `translate(${m.left},${m.top})`);
 
+// X axis
+var x = d3.scaleBand()
+    .range([ 0, w ])
+    .domain(["1","2","3","4","5","6"])
+   // .domain(data.map(d => d.ingredients))
+    .padding(0.2);
+    console.log("outside function")
+    console.log(x)
+
+
+var Xaxis= svg_top6.append("g")
+    .attr("transform", `translate(0, ${h })`)
+    .call(d3.axisBottom(x))
+    /*.selectAll("text")
+        .attr("transform", "translate(-10,0)rotate(-45)")
+        .style("text-anchor", "end")
+        .style("textsize","20px");*/
+
+
+ // Add Y axis
+ var y = d3.scaleLinear()
+    .range([ h , 0])
+    .domain([ 0, 16000]); //replace with min and max value 
+    
+Yaxis= svg_top6.append("g")
+    .call(d3.axisLeft(y)); 
+
 function selectedData_bar(dataset){
     selected_country= getvalue_bar()
     var data_filter = dataset.filter( element => element.country ==selected_country)
@@ -25,52 +52,62 @@ function selectedData_bar(dataset){
 function drawBar (){
     d3.json(top6Path).then(function(data){
         data= selectedData_bar(data)
+        //console.log(data)
+
+        var counts = data.map(d => d["ingredient_counts"])
+        console.log(counts)
+
+        var minvalue = d3.min(counts);
+        var maxvalue = d3.max(counts);
 
         //const minvalue = d3.min(map.values(), d => d["ingredient_counts"]);
-       // const maxvalue = d3.max(map.values(), d => d["ingredient_counts"]);
+        //const maxvalue = d3.max(map.values(), d => d["ingredient_counts"]);
        
-        // X axis
-        const x = d3.scaleBand()
-            .range([ 0, w ])
+        x
             .domain(data.map(d => d.ingredients))
-            .padding(0.2);
-            
+      
 
-        svg_top6.append("g")
-            .attr("transform", `translate(0, ${h })`)
+        Xaxis
+            .transition()
+            .duration(1000)
             .call(d3.axisBottom(x))
             .selectAll("text")
                 .attr("transform", "translate(-10,0)rotate(-45)")
                 .style("text-anchor", "end")
                 .style("textsize","20px");
-                
-        // Add Y axis
-        const y = d3.scaleLinear()
-            .domain([ 0, 16000]) //replace with min and max value 
-            .range([ h , 0]);
-        svg_top6.append("g")
-            .call(d3.axisLeft(y));
+        
+        y   
+            .domain([0,maxvalue])
+        Yaxis   
+            .call(d3.axisLeft(y)); 
+        
+       
 
         // Bars
-        svg_top6.selectAll("mybar")
+        const u = svg_top6.selectAll("rect")
             .data(data)
+        
+        u   
             .enter()
             .append("rect")
-                //.transition()
-                //.duration(1000)
+            .merge(u)
+            .transition()
+            .duration(1000)
                 .attr("x", d => x(d.ingredients))
                 .attr("y", d => y(d.ingredient_counts))
                 .attr("width", x.bandwidth())
                 .attr("height", d => h  - y(d.ingredient_counts))
                 .attr("fill", "#14c967")
                
-                .on("mouseover",function(){d3.select(this)
+               /* .on("mouseover",function(){d3.select(this)
                     .style("opacity", "0.6");
                     
                 })
                 .on("mouseout",function(){d3.select(this)
                     .style("opacity", "1");
-                })
+                })*/
+
+        
 
         //TO DO!!
         .call(rect => rect.append("title")
@@ -80,4 +117,5 @@ function drawBar (){
     })
 
 }
-drawBar ();
+drawBar();
+}
