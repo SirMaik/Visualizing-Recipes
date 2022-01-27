@@ -127,7 +127,7 @@
   a {
     color: #0f9b4f;
     text-decoration: none;
-    transition-property: color,background-color;
+    transition-property: color;
     transition-duration: .3s;
   }
   a:-webkit-any-link {
@@ -158,7 +158,7 @@
   }
   
   #block1 {
-    height:auto;
+    height:500px;
     grid-area: one;
 
   }
