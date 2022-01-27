@@ -27,7 +27,6 @@
       <nav>
         <ul>
           <li><a href="#background">Background</a></li>
-          <li><a href="#recipeSearch">Recipe Search</a></li>
           <li><a href="#statisticPart">Statistic Part</a></li>
           <li><a href="#title">Top</a></li>
         </ul>
@@ -78,10 +77,9 @@
       <div class = "section-grid-statistic">
         <div class="vis" id="vis1">
           <div id= "top6">
-            <script src="{{ url_for('static', filename='bar_chart.js')}}"></script>
-            <!-- Selectoption for pie chart-->
-            <label for="data">Choose a country:</label>
-            <select value = "world" id="data" name="countrylist"  onChange="getvalue()" >
+            
+            <!-- Selectoption for bar chart-->
+            <select value = "world" id="data_bar" name="countrylist"  onChange="drawBar ();"  >
               <option value="american">American</option>
               <option value="angolan">Angolan</option>
               <option value="argentine">Argentine</option>
@@ -145,19 +143,19 @@
               <option value="turkish">Turkish</option>
               <option value="vietnamese">Vietnamese</option>
               <option value="world" selected >World data</option>
-            </select>      
+            </select> 
+            <div id="top6">
+              <script src="{{ url_for('static', filename='bar_chart.js')}}"></script>
+            </div>     
           </div>
             <!--3. visualization-->  
           <p>Top 6 used ingredients</p>
         </div>
 
         <div class="vis" id="vis2">
-          <div id= "myPieChart">
-            <script src="{{ url_for('static', filename='pie_chart.js')}}"></script>
            <!-- Selectoption for pie chart-->
-            <label for="data">Choose a country:</label>
-            <select value = "world" id="data" name="countrylist"  onChange="getvalue()" >
-              <option value="american">American</option>
+            <select value = "world" id="data_pie" name="countrylist"  onChange="update();" >
+              <option value="USA" selected >American</option>
               <option value="angolan">Angolan</option>
               <option value="argentine">Argentine</option>
               <option value="australian">Australian</option>
@@ -219,8 +217,10 @@
               <option value="thai">Thai</option>
               <option value="turkish">Turkish</option>
               <option value="vietnamese">Vietnamese</option>
-              <option value="world" selected >World data</option>
-            </select>      
+              <option value="world"  >World data</option>
+            </select> 
+            <div id= "myPieChart"></div>  
+            <script src="{{ url_for('static', filename='pie_chart.js')}}"></script>   
           </div>
             <!--4. visualization-->
           <p>Procentage of vegan and vegetarian recipes</p>      

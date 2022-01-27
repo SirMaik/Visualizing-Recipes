@@ -79,6 +79,32 @@ Promise.all([d3.csv(csvPath),d3.csv(ingredientsPath)]).then(function (data) {
   return table;
   
 })*/
+// select value funktion
+function getvalue_bar() {
+  
+var select = document.getElementById('data_bar');
+  var option = select.options[select.selectedIndex];
+  var x= option.value
+  console.log(x+ " select option")
+ 
+  return x;
+}
+
+getvalue_bar();
+
+
+function getvalue_pie() {
+  
+  var select = document.getElementById('data_pie');
+    var option = select.options[select.selectedIndex];
+    var x= option.value
+    console.log(x+ " select option")
+   
+    return x;
+  }
+  
+  getvalue_pie();
+
 
   // Overlay effect table
   function on() {
