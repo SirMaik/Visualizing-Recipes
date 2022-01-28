@@ -59,15 +59,15 @@ regions = ['asian', 'north-american', 'south-american', 'european', 'african', '
 // color scale for regions
 const c = d3.scaleOrdinal()
   .domain(regions)
-  .range([d3.interpolateViridis])
+  .range(d3.schemeSet3)
   //.range([]d3.schemeSet3);
 
 // Label X-Axis
 svg.append("text")
   .attr("class", "x label")
   .attr("text-anchor", "end")
-  .attr("x", width - 230)
-  .attr("y", height + 20 )
+  .attr("x", x(250))
+  .attr("y", y(-1) )
   .style("font-size", 14)
   .text("Time to cook (minutes)");
 
@@ -173,6 +173,35 @@ infotext_afr = svg.append("text")
   .style("fill", "transparent")
   .text("The three cuisines with the shortest average recipes are African")
 
+/* add lines with instructions (1)
+svg.append("text")
+  .attr("class", "legendTitle")
+  .attr("text-anchor", "middle")
+  .attr("x", xValCircle - 20)
+  .attr("y", yValCircle - legendYShift)
+  .style("font-size", 14)
+  .text("Hover over each bubble to see the cuisine.")
+
+// add lines with instructions (2)
+svg.append("text")
+  .attr("class", "legendTitle")
+  .attr("text-anchor", "middle")
+  .attr("x", xValCircle - 20)
+  .attr("y", yValCircle - legendYShift)
+  .attr("dy", "1em")
+  .style("font-size", 14)
+  .text("Click on a regional bubble to expand into smaller bubbles.")
+
+// add lines with instructions (3)  
+svg.append("text")
+  .attr("class", "legendTitle")
+  .attr("text-anchor", "middle")
+  .attr("x", xValCircle - 20 )
+  .attr("y", yValCircle - legendYShift)
+  .attr("dy", "2em")
+  .style("font-size", 14)
+  .text("The number of countries per regional bubble is encoded in its size.")
+*/
 // y-Offset scale for regions
 var ylegend = d3.scaleOrdinal()
   .domain(regions)  
@@ -207,6 +236,42 @@ svg
     .text(d => d)
     .style("font-size", 11)
     .attr('alignment-baseline', 'middle')
+
+// mouseover tooltip
+// function onMouseOver(d){
+//   // update tooltip position and value
+//   tooltip2
+//      // .append("div")
+//       // initial opacity is 0
+//       .style("opacity", 0)
+//       .attr("data-html", "true")
+//       .style('left', x(d.minutes) + shiftx + 70 +  'px')
+//       // ensure that no bubble has a another tooltip overlapping with it
+//       // tooltips were overlapping with bubbles before, which prevented the hover-effect for other bubbles
+//       .style('top', d.n_ingredients < 10 ?  (margin.top + y(d.n_ingredients) + 240 + 'px') : (margin.top + y(d.n_ingredients) + 20 + 'px') )
+//       // here, the normalized value is printed
+//       .html(d.continent == "false" ? d.country : d.country  + " <br> number of cuisines: " + d.continent)
+//       .style("position", "absolute")   
+//       .style("visibility", "visible")
+//       .style("background-color", "aquamarine")
+//       // transition to visible
+//       .transition()
+//         .delay(100)
+//         .duration(200)
+//         .style("opacity", 1);    
+//    }
+
+
+// // mouseout tooltip
+// function onMouseOut(d){
+//   tooltip2
+//     .selectAll("div")
+//     //transition to opacity of 0
+//     .transition()
+//       .delay(100)
+//       .duration(600)
+//       .style("opacity",0);
+// }
 
     
 // add text depending on selection
