@@ -59,7 +59,7 @@ regions = ['asian', 'north-american', 'south-american', 'european', 'african', '
 // color scale for regions
 const c = d3.scaleOrdinal()
   .domain(regions)
-  .range(['#440154','#472d7b','#3b528b','#2c728e','#21918c','#28ae80','#5ec962','#addc30','#fde725'])
+  .range([d3.interpolateViridis])
   //.range([]d3.schemeSet3);
 
 // Label X-Axis
@@ -97,41 +97,41 @@ const legendYShift = 120
 // the ellipses below and the infotexts appear after regional bubbles are clicked
 
 ellipse_eu = svg.append("ellipse")
-  .attr("rx", 80)  
-  .attr("ry", 50)
-  .attr("cx", xValCircle + 50)
-  .attr("cy", yValCircle - legendYShift + 200)
+  .attr("rx", 100)  
+  .attr("ry", 40)
+  .attr("cx", x(310))
+  .attr("cy", y(10))
   .attr("stroke", "red")
   .attr("fill", "transparent")
   .attr("stroke-width", 3)
   .style("opacity", 0)
 
 ellipse_kor = svg.append("ellipse")
-  .attr("rx", 20)  
-  .attr("ry", 20)
-  .attr("cx", xValCircle + 102)
-  .attr("cy", yValCircle - legendYShift + 157)
+  .attr("rx", 17)  
+  .attr("ry", 17)
+  .attr("cx", x(355))
+  .attr("cy", y(11))
   .attr("stroke", "red")
   .attr("fill", "transparent")
   .attr("stroke-width", 3)
   .style("opacity", 0)
 
 ellipse_ind = svg.append("ellipse")
-  .attr("rx", 75)  
-  .attr("ry", 25)
-  .attr("cx", xValCircle - 385)
-  .attr("cy", yValCircle - legendYShift - 30)
+  .attr("rx", 45)  
+  .attr("ry", 19)
+  .attr("cx", x(105))
+  .attr("cy", y(17.5))
   .attr("stroke", "red")
   .attr("fill", "transparent")
   .attr("stroke-width", 3)
   .style("opacity", 0)
-  .attr("transform", "rotate(30)")
+  .attr("transform", "rotate(25)")
 
 ellipse_afr = svg.append("ellipse")
-  .attr("rx", 50)  
-  .attr("ry", 25)
-  .attr("cx", xValCircle - 370)
-  .attr("cy", yValCircle - legendYShift + 160)
+  .attr("rx", 35)  
+  .attr("ry", 20)
+  .attr("cx", x(95))
+  .attr("cy", y(12))
   .attr("stroke", "red")
   .attr("fill", "transparent")
   .attr("stroke-width", 3)
@@ -140,8 +140,8 @@ ellipse_afr = svg.append("ellipse")
 
 infotext_eu = svg.append("text")
   .attr("text-anchor", "end")
-  .attr("x", xValCircle + 190)
-  .attr("y", yValCircle - legendYShift + 100)
+  .attr("x", x(380))
+  .attr("y", y(6))
   .attr("dy", "1em")
   .style("font-size", 12)
   .style("fill", "transparent")
@@ -149,8 +149,8 @@ infotext_eu = svg.append("text")
 
 infotext_kor = svg.append("text")
   .attr("text-anchor", "end")
-  .attr("x", xValCircle + 180)
-  .attr("y", yValCircle - legendYShift +  100)
+  .attr("x", x(370))
+  .attr("y", y(7))
   .attr("dy", "1em")
   .style("font-size", 12)
   .style("fill", "transparent")
@@ -159,49 +159,20 @@ infotext_kor = svg.append("text")
 
 infotext_ind = svg.append("text")
   .attr("text-anchor", "end")
-  .attr("x", xValCircle - 20)
-  .attr("y", yValCircle - legendYShift + 60)
+  .attr("x", x(250))
+  .attr("y", y(16))
   .style("font-size", 12)
   .style("fill", "transparent")
   .text("On average, indian dishes require more ingredients.")
 
 infotext_afr = svg.append("text")
   .attr("text-anchor", "end")
-  .attr("x", xValCircle - 0)
-  .attr("y", yValCircle - legendYShift + 250)
+  .attr("x", x(270))
+  .attr("y", y(5.5))
   .style("font-size", 12)
   .style("fill", "transparent")
   .text("The three cuisines with the shortest average recipes are African")
 
-/* add lines with instructions (1)
-svg.append("text")
-  .attr("class", "legendTitle")
-  .attr("text-anchor", "middle")
-  .attr("x", xValCircle - 20)
-  .attr("y", yValCircle - legendYShift)
-  .style("font-size", 14)
-  .text("Hover over each bubble to see the cuisine.")
-
-// add lines with instructions (2)
-svg.append("text")
-  .attr("class", "legendTitle")
-  .attr("text-anchor", "middle")
-  .attr("x", xValCircle - 20)
-  .attr("y", yValCircle - legendYShift)
-  .attr("dy", "1em")
-  .style("font-size", 14)
-  .text("Click on a regional bubble to expand into smaller bubbles.")
-
-// add lines with instructions (3)  
-svg.append("text")
-  .attr("class", "legendTitle")
-  .attr("text-anchor", "middle")
-  .attr("x", xValCircle - 20 )
-  .attr("y", yValCircle - legendYShift)
-  .attr("dy", "2em")
-  .style("font-size", 14)
-  .text("The number of countries per regional bubble is encoded in its size.")
-*/
 // y-Offset scale for regions
 var ylegend = d3.scaleOrdinal()
   .domain(regions)  
@@ -236,42 +207,6 @@ svg
     .text(d => d)
     .style("font-size", 11)
     .attr('alignment-baseline', 'middle')
-
-// mouseover tooltip
-function onMouseOver(d){
-  // update tooltip position and value
-  tooltip2
-     // .append("div")
-      // initial opacity is 0
-      .style("opacity", 0)
-      .attr("data-html", "true")
-      .style('left', x(d.minutes) + shiftx + 70 +  'px')
-      // ensure that no bubble has a another tooltip overlapping with it
-      // tooltips were overlapping with bubbles before, which prevented the hover-effect for other bubbles
-      .style('top', d.n_ingredients < 10 ?  (margin.top + y(d.n_ingredients) + 240 + 'px') : (margin.top + y(d.n_ingredients) + 20 + 'px') )
-      // here, the normalized value is printed
-      .html(d.continent == "false" ? d.country : d.country  + " <br> number of cuisines: " + d.continent)
-      .style("position", "absolute")   
-      .style("visibility", "visible")
-      .style("background-color", "aquamarine")
-      // transition to visible
-      .transition()
-        .delay(100)
-        .duration(200)
-        .style("opacity", 1);    
-   }
-
-
-// mouseout tooltip
-function onMouseOut(d){
-  tooltip2
-    .selectAll("div")
-    //transition to opacity of 0
-    .transition()
-      .delay(100)
-      .duration(600)
-      .style("opacity",0);
-}
 
     
 // add text depending on selection
@@ -352,16 +287,20 @@ d3.csv(csvPath).then(function(data) {
     .enter().append("circle")
       .attr("cx", d => (x(d.minutes) + shiftx))
       .attr("cy", d => (y(d.n_ingredients) - 17))
-      .attr("r", d => d.continent != "false"? Math.sqrt(d.continent)*7: 7)
+      .attr("r", d => d.continent != "false"? Math.sqrt(d.continent)*5: 5)
       .style("fill", d => c(d.region))
       // reduce opacity so bubbles are visible underneath each over
       .style("opacity", d => d.continent != "false"? visible: hidden)
       .attr("stroke", "black")
       .attr("class", d => d.region) 
       .attr("id", d => d.country)     
-      // add mouse hovering actions
-      .on("mouseover",(event, d) => onMouseOver(d))
-      .on("mouseout", (event, d) => onMouseOut(d))
+      
+      // .on("mouseover",(event, d) => onMouseOver(d))
+      // .on("mouseout", (event, d) => onMouseOut(d))
+
+      // add mouseover tooltip
+      .call(circle => circle.append("title")
+      .html(d => d.continent == "false" ? d.country : d.country  + "   number of cuisines: " + d.continent))
       .on("click", function(event){
         // after a click on a bubble, the opacity of each bubble is changed according to the region of the clicked bubble
         
