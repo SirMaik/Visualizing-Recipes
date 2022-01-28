@@ -36,8 +36,10 @@
         <!--Miguel's World MAP visualization-->
       <div class = "section-grid" id= "line">
         <div id="block1">
-          <div id="worldMap">
-            <script src="{{ url_for('static', filename='world_map.js')}}"></script>
+          <div id="worldBlock">
+           <div id="worldMap">
+              <script src="{{ url_for('static', filename='world_map.js')}}"></script>
+            </div>
           </div>
         </div>
         <div id="block2"  style= "width: 100%; height:auto;">
@@ -45,9 +47,13 @@
         </div> 
         <div  id="block3"  style= "width: 100%; height:auto;">
           <p class= "large">
-            Hover the country you are interested in to get the information for a spetific cuisine type.
+            World map which displays the number of recipes for each country. 
           </p>
-          <p> Miguel Discription</p><!-- Add here the discription-->
+          <p>Hover the country you are interested in to get further information about it (like the list of cuisines).
+            <br>
+            <br>
+            You can zoom with the mouse wheel and move the map when you left click and drag the mouse. 
+          </p><!-- Add here the discription-->
         </div> 
       </div>
       <!--Mehrin's Treemap visualization-->
@@ -243,8 +249,14 @@
           <div id="chord">
           <script src="{{ url_for('static', filename='chord.js')}}"></script> 
           </div>  
-        <p class= large>Miguel's ingredient intercation</p>  
-        <p>Add here the discription</p>
+        <p class= large>
+          Chord diagram which shows the amount of recipes in common between the food categories.
+        </p>  
+        <p>
+          Each arc has the name of the corresponding category and also marks with 
+          percentages of the total number of relations of each category.
+          <br>
+          You can hover over the arcs and the chords to see additional information about them.
         </div> 
       </div> 
     </div>
