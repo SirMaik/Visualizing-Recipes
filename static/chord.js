@@ -4,8 +4,8 @@
 {
     const jsonPath= "static/data/category-relations.json";
 
-    const height = 800
-    const width = 800
+    const height = 600
+    const width = 600
 
     const outerRadius = Math.min(width, height) * 0.5 - 60
     const innerRadius = outerRadius - 10

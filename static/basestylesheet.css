@@ -230,7 +230,7 @@
     grid-area: one;
   }
   #top6{
-    padding-left: 13%;
+    padding-left: 5%;
     padding-top: 1em;
   }
   #vis2 {
@@ -256,9 +256,13 @@
     grid-area: three;
   }
   #vis4{
-    height:600px;
+    height:750px;
     width: 100%;
     grid-area: four;
+  }
+  #chord{
+    padding-top: 2em;
+    padding-left: 10%;
   }
   
   @media screen and (min-width: 55em) {

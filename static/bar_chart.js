@@ -9,37 +9,47 @@ const m = {top: 30, right: 30, bottom: 70, left: 60},
 // append the svg object to the body of the page
 const svg_top6 = d3.select("#top6")
   .append("svg")
-    .attr("width", w + m.left + m.right)
+    .attr("width", w + m.left + m.right+40)
     .attr("height", h + m.top + m.bottom)
   .append("g")
     .attr("transform", `translate(${m.left},${m.top})`);
 
-// X axis
+// X axis with starting values
 var x = d3.scaleBand()
     .range([ 0, w ])
     .domain(["1","2","3","4","5","6"])
    // .domain(data.map(d => d.ingredients))
     .padding(0.2);
-    console.log("outside function")
-    console.log(x)
-
+    
 
 var Xaxis= svg_top6.append("g")
     .attr("transform", `translate(0, ${h })`)
     .call(d3.axisBottom(x))
-    /*.selectAll("text")
-        .attr("transform", "translate(-10,0)rotate(-45)")
-        .style("text-anchor", "end")
-        .style("textsize","20px");*/
+    
+//titel x-Axis
+ svg_top6.append("text")
+            .attr("text-anchor", "end")
+            .attr("x", 540)
+            .attr("y", 170)
+            .text("Ingredients");
 
 
- // Add Y axis
+ // Add Y axis with starting values
  var y = d3.scaleLinear()
     .range([ h , 0])
-    .domain([ 0, 16000]); //replace with min and max value 
+    .domain([ 0, 16000]);  
     
 Yaxis= svg_top6.append("g")
     .call(d3.axisLeft(y)); 
+
+// titel Y axis:
+svg_top6.append("text")
+            .attr("text-anchor", "end")
+            .attr("transform", "rotate(-90)")
+            .attr("y", -45)
+            .attr("x", -20)
+            .text("Number of counts")
+
 
 function selectedData_bar(dataset){
     selected_country= getvalue_bar()
@@ -60,9 +70,10 @@ function drawBar (){
         var minvalue = d3.min(counts);
         var maxvalue = d3.max(counts);
 
-        //const minvalue = d3.min(map.values(), d => d["ingredient_counts"]);
-        //const maxvalue = d3.max(map.values(), d => d["ingredient_counts"]);
-       
+        
+       // Source: https://www.d3-graph-gallery.com/graph/barplot_button_data_csv.html, https://www.d3-graph-gallery.com/graph/scatter_buttonXlim.html
+        
+       //update x-axis
         x
             .domain(data.map(d => d.ingredients))
       
@@ -76,6 +87,7 @@ function drawBar (){
                 .style("text-anchor", "end")
                 .style("textsize","20px");
         
+        //update y-axis
         y   
             .domain([0,maxvalue])
         Yaxis   
@@ -83,7 +95,7 @@ function drawBar (){
         
        
 
-        // Bars
+        // create Bars
         const u = svg_top6.selectAll("rect")
             .data(data)
         
@@ -99,20 +111,18 @@ function drawBar (){
                 .attr("height", d => h  - y(d.ingredient_counts))
                 .attr("fill", "#14c967")
                
-               /* .on("mouseover",function(){d3.select(this)
-                    .style("opacity", "0.6");
-                    
-                })
-                .on("mouseout",function(){d3.select(this)
-                    .style("opacity", "1");
-                })*/
+        //lable values for each bar      
+        d3.selectAll("rect")
+            
+            .on("mouseover",function(d){
+                data(data)
+                d3.select(this)
+                    .style("opacity", "0.6")
+                    .append("title")
+                        .text(d => ["Counts"+ d. ingredient_counts]
+                        .join("\n")) ;
 
-        
-
-        //TO DO!!
-        .call(rect => rect.append("title")
-            .text(d => ["Counts"+ d.country ]
-            .join("\n")));
+            })     
         
     })
 

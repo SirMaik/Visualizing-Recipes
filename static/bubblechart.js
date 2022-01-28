@@ -1,4 +1,4 @@
-
+{
 // set the size and margins of the graph
 const margin = {top: 100, right: 20, bottom: 30, left: 50},
     width = 800 - margin.left - margin.right,
@@ -362,4 +362,4 @@ d3.csv(dataset).then(function(data) {
       });   
 
 
-})
+})}
