@@ -2,7 +2,8 @@
     author: Clarissa
 */
 
-{const piePath= "static/data/country-data.json";
+{
+const piePath= "static/data/country-data.json";
 
 
 const w_pie = 200,
@@ -26,44 +27,71 @@ const color = d3.scaleOrdinal()
 function selectedData_pie(dataset){
 
 const worlddata =[
-        {
-            main_tag : "world"
-        },
-        {
-            percentage_non_type: "75.69"
-        },
-        {
-            percentage_veggi_n_recipes: "15.75"
-        },
-        {
-            percentage_vegan_n_recipes: "8.53"
-        }
-        
+        {main_tag : "world"},
+        {percentage_non_type: "75.69"},
+        {percentage_veggi_n_recipes: "15.75"},
+        {percentage_vegan_n_recipes: "8.53"}  
      ]; 
-
 
     selected_country= getvalue_pie()
    // console.log("Got new value")
    
      if( selected_country== "world"){
         var data_filter= worlddata
-        console.log(data_filter)
+        //console.log(data_filter)
         return data_filter
      }
      else{
         var data_filter = dataset.filter( element => element.main_tag ==selected_country)
-        console.log(data_filter)
+        //console.log(data_filter)
         return data_filter 
     } 
 }
+const div = d3.select("#myPieChart")
+
 
 const svg_pie = d3.select("#myPieChart")
-        .append("svg")
-        .attr("width", w_pie+200)
-        .attr("height", h_pie)
-        .append("g")
-        .attr("transform", `translate(${w_pie/2}, ${h_pie/2})`)
+    .append("svg")
+    .attr("width", w_pie+200)
+    .attr("height", h_pie)
+    .append("g")
+    .attr("transform", `translate(${w_pie/2}, ${h_pie/2})`)
 
+// Add a Tooltip
+let pietooltip = div
+    .append("div")
+    .attr("id", "pieTooltip")
+    .style("background-color", "rgba(255,255,255, 0.7)")
+    .style("border-radius", "5px")
+    .style("padding", "10px")
+    .style("position", "absolute")
+    .style("visibility", "hidden");       
+
+function mouseover_pie(event, d) {
+    pietooltip
+        .style("visibility", "visible")
+        .style("left", (event.clientX+5) + "px")
+        .style("top", (event.clientY+5) + "px")
+        .html(extractText_pie(d));
+}
+
+function mousemove_pie(event) {
+    var tooltipHeight = document.getElementById('pieTooltip').clientHeight;    
+    //console.log(event)
+    pietooltip
+        .style("left", (event.pageX+15) + "px")
+        .style("top", (event.pageY+15) + "px")
+}
+
+function mouseout_pie() {
+    pietooltip.style("visibility", "hidden");
+}
+
+// Function extracts text into data
+function extractText_pie(d) {
+    text = d.value +"%";
+    return text;
+}
 //add color legend
 svg_pie.selectAll("mydots")
             .data(keys)
@@ -76,23 +104,20 @@ svg_pie.selectAll("mydots")
             .style("opacity", "1")
 
 svg_pie.selectAll("mylabels")
-            .data(lables)
-            .enter()
-            .append("text")
-                .attr("x", 160)
-                .attr("y", function(d,i){ return -80 + i*20}) 
-                .style("fill", function(d){ return color(d)})
-                .text(function(d){ return d})
-                .attr("text-anchor", "left")
-                .style("alignment-baseline", "middle")
+        .data(lables)
+        .enter()
+        .append("text")
+            .attr("x", 160)
+            .attr("y", function(d,i){ return -80 + i*20}) 
+            .style("fill", function(d){ return color(d)})
+            .text(function(d){ return d})
+            .attr("text-anchor", "left")
+            .style("alignment-baseline", "middle")
 
-
-    
             
 // A function that create / update the plot
 //source    https://www.geeksforgeeks.org/d3-js-pie-function/
 //          https://www.d3-graph-gallery.com/graph/pie_changeData.html
-
 
 function update() {
 
@@ -113,64 +138,38 @@ function update() {
         //Compute the position on the pie
         const pie = d3.pie().value(function(d) { return d[1];})
         const data_ready = pie(Object.entries(recipeTypeList))
+          
+        //creating paths 
+        const u = svg_pie.selectAll("path")        
+            .data(data_ready)
 
-        
-
-    // creating paths 
-    const u = svg_pie.selectAll("path")        
-        .data(data_ready)
-
-    u
-        .join('path')
-        .transition()
-        .duration(1000)
-        .attr('d', d3.arc()
-            .innerRadius(0)
-            .outerRadius(radius)
-        )
-        .attr('fill', function(d){ 
-            return(color(d.data[0])) })
-        .attr("stroke", "white")
-        .style("stroke-width", "2px")            
-        .style("opacity", 1)
-
-    
-    
-    svg_pie.selectAll("path")
-       // .on("mouseover",function(){
-        //    d3.select(this)
-         //       .style("opacity", "0.6");
-            
-        
-     // })
-      .on("mouseover", d =>{
-        console.log("on hover!")
-        console.log(d.target.__data__.value)  
-      })
-       // .on("mouseout",function(){
-       //     d3.select(this)
-       //         .style("opacity", "1")
-               
-
-   // })
-
-    /*add content TO DO!!! Not working 
-    var content= d3.select("g").selectAll("text").data(data_ready);
-
-    content
-        .enter()
-        .append("text")
-        .each(function(d){
-            d3.select(this)
-            .attr("x", center[0])
-            .attr("y", center[1])
-            .text(d.data[1])
-            .style("font-size", 14)
-            .style("fill", "#fff")
-            
-        })*/  
-        
-
+        u
+            .join('path')
+            .transition()
+            .duration(1000)
+            .attr('d', d3.arc()
+                .innerRadius(0)
+                .outerRadius(radius)
+            )
+            .attr('fill', function(d){ 
+                return(color(d.data[0])) })
+            .attr("stroke", "white")
+            .style("stroke-width", "2px")            
+            .style("opacity", 1)
+           
+        // mouseover effects
+            svg_pie.selectAll("path")
+                .on("mouseover", function(event,d){ 
+                    mouseover_pie(event,d); 
+                    d3.select(this)
+                        .style("opacity", "0.6")  } )
+                .on("mousemove", function(event){ 
+                    mousemove_pie(event); } )
+                .on("mouseleave", function(d) {
+                    mouseout_pie ()
+                    d3.select(this)
+                        .style("opacity", "1")
+                })  
     })   
 }
 update()
