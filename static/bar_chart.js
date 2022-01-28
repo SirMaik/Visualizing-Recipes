@@ -14,7 +14,6 @@ const div = d3.select("#top6")
 // append the svg object to the body of the page
 const svg_top6 = d3.select("#top6")
   .append("svg")
-    .attr("class", "barchart")
     .attr("width", w + m.left + m.right+40)
     .attr("height", h + m.top + m.bottom)
   .append("g")
@@ -152,7 +151,7 @@ function drawBar (){
                 .attr("fill", "#14c967")
                
         //lable values for each bar      
-        d3.selectAll("barchart.rect")
+        d3.selectAll("rect")
             .on("mouseover", function(event,d){ 
                 mouseover_bar(event,d); 
                 d3.select(this)
