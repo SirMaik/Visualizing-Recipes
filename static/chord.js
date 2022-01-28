@@ -18,7 +18,7 @@
         relations = data["relations"]
 
 
-        colors = d3.quantize(d3.interpolateCubehelixDefault, categories.length)
+        colors = d3.quantize(d3.interpolateTurbo, categories.length)
         percentageStep = d3.tickStep(0, d3.sum(relations.flat()), 100)
 
 
