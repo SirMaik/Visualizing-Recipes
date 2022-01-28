@@ -9,6 +9,8 @@ const m = {top: 30, right: 30, bottom: 70, left: 60},
     w = 600 - m.left - m.right,
     h = 250 - m.top - m.bottom;
 
+const div = d3.select("#top6")
+
 // append the svg object to the body of the page
 const svg_top6 = d3.select("#top6")
   .append("svg")
@@ -16,7 +18,41 @@ const svg_top6 = d3.select("#top6")
     .attr("height", h + m.top + m.bottom)
   .append("g")
     .attr("transform", `translate(${m.left},${m.top})`);
+// Add a Tooltip
+let pietooltip = div
+    .append("div")
+    .attr("id", "barTooltip")
+    .style("background-color", "rgba(255,255,255, 0.7)")
+    .style("border-radius", "5px")
+    .style("padding", "10px")
+    .style("position", "absolute")
+    .style("visibility", "hidden");       
 
+function mouseover_bar(event, d) {
+    pietooltip
+        .style("visibility", "visible")
+        .style("left", (event.clientX+5) + "px")
+        .style("top", (event.clientY+5) + "px")
+        .html(extractText_bar(d));
+}
+
+function mousemove_bar(event) {
+    var tooltipHeight = document.getElementById('barTooltip').clientHeight;    
+    //console.log(event)
+    pietooltip
+        .style("left", (event.pageX+15) + "px")
+        .style("top", (event.pageY+15) + "px")
+}
+
+function mouseout_bar() {
+    pietooltip.style("visibility", "hidden");
+}
+
+// Function extracts text into data
+function extractText_bar(d) {
+    text = d.ingredient_counts;
+    return text;
+}
 // X axis with starting values
 var x = d3.scaleBand()
     .range([ 0, w ])
@@ -116,16 +152,17 @@ function drawBar (){
                
         //lable values for each bar      
         d3.selectAll("rect")
-            
-            .on("mouseover",function(d){
-                data(data)
+            .on("mouseover", function(event,d){ 
+                mouseover_bar(event,d); 
                 d3.select(this)
-                    .style("opacity", "0.6")
-                    .append("title")
-                        .text(d => ["Counts"+ d. ingredient_counts]
-                        .join("\n")) ;
-
-            })     
+                    .style("opacity", "0.6")  } )
+            .on("mousemove", function(event){ 
+                mousemove_bar(event); } )
+            .on("mouseleave", function(d) {
+                mouseout_bar ()
+                d3.select(this)
+                    .style("opacity", "1")
+            })  
         
     })
 
