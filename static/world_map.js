@@ -5,39 +5,43 @@
   const jsonPath= "static/data/country-data.json";
   const geoURL  = "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson";
 
+   // Height and width
+   const width = 750;
+   const height = 500;
+ 
+
   // Zoom
   const handleZoom = (e) => worldMap.attr('transform', e.transform);
   const zoom = d3.zoom()
     .scaleExtent([1, 7])
     .on('zoom', handleZoom);
 
+  const div = d3.select("#worldMap")
+
   // The svg
-  const svg = d3.select("#worldMap")
+  const svg = div
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height)
     .call(zoom);
 
-  // Height and width
-  const width = svg.attr("width");
-  const height = svg.attr("height");
-
+ 
   // Map and projection
   let map = new Map();
   const path = d3.geoPath();
   const projection = d3.geoMercator()
-    .scale(80)
-    .center([0,20])
-    .translate([width / 2, height / 2 + 10]);
+    .scale(115)
+    .center([0,30])
+    .translate([width / 2, height / 2 + 30]);
 
   // World map svg areas
   const worldMap = svg.append('g');
-  const legend = svg.append('g')
-    .attr("class", "legend")
-    .attr("transform", "translate(" + 100 + "," + 350 + ")");
-
 
   // Tooltip
-  let tooltip = d3.select("#worldBlock")
+  let tooltip = div
     .append("div")
     .attr("class", "tooltip")
+    .attr("id", "worldTooltip")
     .style("background-color", "rgba(255,255,255, 0.7)")
     .style("border-radius", "5px")
     .style("padding", "10px")
@@ -73,21 +77,24 @@
       .style("top", (event.clientY+5) + "px")
       .html(extractText(d));
 
-      d3.selectAll(".country")
-        .transition()
-        .duration(200)
-        .style("opacity", .7)
-        .style("stroke", "none");
 
-      country.transition()
-        .duration(200)
-        .style("opacity", 1)
-        .style("stroke", "black");
+    d3.selectAll(".country")
+      .transition()
+      .duration(200)
+      .style("opacity", .7)
+      .style("stroke", "none");
+
+    country.transition()
+      .duration(200)
+      .style("opacity", 1)
+      .style("stroke", "black");
 
         
   }
 
   function whileMouseMove(event) {
+    var tooltipHeight = document.getElementById('worldTooltip').clientHeight;
+
     tooltip
       .style("left", (event.clientX+5) + "px")
       .style("top", (event.clientY+5) + "px")
@@ -163,36 +170,52 @@
         .on("mouseleave", whileMouseOut )
 
 
-      // Legend
+      // Legend 
+      
+      const xRatio = width / 7
+      const yRatio = height / 8
+
+      const leftPadding =  xRatio
+      const upperPadding = 6 *yRatio
+
+      const legend = svg.append('g')
+        .attr("class", "legend")
+        .attr("transform", "translate(" + leftPadding + "," + upperPadding + ")");
+
+      const legendWidth = 5 * xRatio
+      const legendHeight = 1.15 * yRatio
 
       // Background
       legend.append("rect")
         .attr("x", 0)
-        .attr("y", -17)
-        .attr('width', 400)
-        .attr('height', 60)
+        .attr("y", -18)
+        .attr('width', legendWidth)
+        .attr('height', legendHeight)
         .style("fill", "white")
         .style("opacity", "0.5");
       
       // Title
       legend.append("text")
         .text("Number of recipes:")
-        .attr("x", 10);
+        .attr("x", 15);
+      
+      const lRectWidth = legendWidth / 12
+      const lRectHeight = legendHeight / 4.5
 
       // First rectangle
       legend.append("rect")
-        .attr("x", 20)
-        .attr("y", 10)
-        .attr('width', 35)
-        .attr('height', 15)
+        .attr("x", lRectWidth/2)
+        .attr("y", 0.8 * lRectHeight)
+        .attr('width', lRectWidth)
+        .attr('height', lRectHeight)
         .style("fill", getColor(0))
         .style("stroke", "black");
 
       legend.append("text")
-        .attr("x", 37)
-        .attr("y", 38)
+        .attr("x", lRectWidth)
+        .attr("y", 2.7 * lRectHeight)
         .text("Unavailable")
-        .style("font-size", "10px")
+        .style("font-size", "11px")
         .style("text-anchor", "middle")
       
       // Rest of the rectangles
@@ -202,21 +225,21 @@
         .data(values)
         .enter()
         .append("rect")
-          .attr("x", d => 100 + values.indexOf(d)*35)
-          .attr("y", 10)
-          .attr('width', 35)
-          .attr('height', 15)
-          .style("fill", d => getColor(d))
-          .style("stroke", "black");
+        .attr("x", d => 3 * lRectWidth + values.indexOf(d)*lRectWidth)
+        .attr("y", 0.8 * lRectHeight)
+        .attr('width', lRectWidth)
+        .attr('height', lRectHeight)
+        .style("fill", d => getColor(d))
+        .style("stroke", "black");
         
       labels = legend.selectAll("legend.labels")
         .data(values)
         .enter()
         .append("text")
-          .attr("x", d => 117 + values.indexOf(d)*35)
-          .attr("y", 38)
+          .attr("x", d => 3 * lRectWidth + lRectWidth / 2 + values.indexOf(d)*lRectWidth)
+          .attr("y", 2.7 * lRectHeight)
           .text(d => d)
-          .style("font-size", "10px")
+          .style("font-size", "11px")
           .style("text-anchor", "middle")
   ;
     })
