@@ -32,10 +32,8 @@
         </ul>
       </nav>
     </div>
-
-     
     <div class="section">
-        <!--first visualization-->
+        <!--Miguel's World MAP visualization-->
       <div class = "section-grid" id= "line">
         <div id="block1">
           <div id="worldBlock" >
@@ -50,12 +48,14 @@
           <p class= "large">
             Hover the country you are interested in to get the information for a spetific cuisine type.
           </p>
+          <p> Miguel Discription</p><!-- Add here the discription-->
         </div> 
       </div>
-      <!--second visualization-->
+      <!--Mehrin's Treemap visualization-->
       <div class = "section-grid">
         <div id="block1"  style= "width: 100%; height:auto;">  
-          <p>Mehrin's treemap</p>
+          <div id= treemap> <!-- MEHRIN HERE IS THE BLOCK FOR YOUR VIS-->
+          </div>
           
         </div>
         <div id="block2"  style= "width: 100%; height:auto;">
@@ -63,8 +63,9 @@
         </div> 
         <div  id="block3"  style= "width: 100%; height:auto;">
           <p class= "large">
-            IMPORTANT: insert description.... 
+            Discripe 
           </p>
+          <p>further discription</p>
         </div> 
       </div>
     </div>
@@ -75,6 +76,7 @@
 
     <div class= "section2">
       <div class = "section-grid-statistic">
+        
          <!--Clarissa's Bar-Chart visualization--> 
         <div class="vis" id="vis1">
            <!-- Selectoption for bar chart-->
@@ -147,8 +149,10 @@
             <script src="{{ url_for('static', filename='bar_chart.js')}}"></script>
           </div>       
           <p class="large">Top 6 used ingredients for selected country</p>
+          <p>Discription</p>
         </div>
-       
+
+       <!--Clarissa's Pie chart visualitzation-->
         <div class="vis" id="vis2">
         <!-- Selectoption for pie chart-->
            <select value = "world" id="data_pie" name="countrylist"  onChange="update();" >
@@ -221,34 +225,28 @@
           </div> 
           
           <p class= "large">Types of recipes: Procentage of vegan, vegetarian and non type recipes for selected country</p>   
+          <p>Discription</p>
         </div> 
-        <!--Marina's  visualization-->
+
+        <!--Marina's Bubblechart visualization-->
         <div class="vis" id="vis3">
-          <div>
+          <div id= bubbleChart>
            
           </div>
             
-        <p> Marina's bubblechart</p>   
+        <p class= large> Titel: Marina's bubblechart</p>   
+        <p>Add here the discription!</p>
         </div> 
+
       <!--Miguel's visualization-->
         <div  class="vis" id="vis4">
           <div id="chord">
           <script src="{{ url_for('static', filename='chord.js')}}"></script> 
-          </div>
-           
-        <p>Miguel's ingredient intercation</p>  
+          </div>  
+        <p class= large>Miguel's ingredient intercation</p>  
+        <p>Add here the discription</p>
         </div> 
         </div> 
-
-       
-    </div>
-  
-    </div>
-      <!-- overlay maybe add to the vis to get more informations-->
-      <div id= "tableOverlay" onclick="off()">
-        <iframe id="myframe" src=https://www.food.com title="recipe details" ></iframe>
-      </div>
-      
     </div>
 
     <div class="section-heading" id= "background">
@@ -269,6 +267,7 @@
         </div>
         <div id="background2">
           <h4>Data</h4>
+          <!--Add some text here for Data modifying Marina, Miguel-->
           <p>In the course of this project, we analyzed hundreds of ingredients, recipeas and other recipe related terms. A good starting point was ... data source. 
             More Info about the dataset....
           </p>

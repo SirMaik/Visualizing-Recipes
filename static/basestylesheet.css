@@ -1,3 +1,7 @@
+/*
+  author: Clarissa
+*/
+
 .container {
     position: relative;
       height: 18%;
@@ -17,12 +21,10 @@
     width:100%;
   }
   
-    
   #title{
     position: absolute;
     bottom: 1em;
   }
-  
   h1 {
     clear: left;
     font-weight: 600;
@@ -33,33 +35,25 @@
     padding: 0.1em 1rem;
     margin: 0;
   }
-  
-  
   .navbar{
     background-color: #14c967;
     width: 100%;
     height: 2em;
     position: sticky;
     top: 0;
-   
   }
-  
   nav {
     position: relative;
-    width: 100%;
-    
+    width: 100%; 
   }
-  
   nav ul {
     margin: 0;
     list-style: none;
   }
-  
   nav li {
     padding-top: auto;
     float: right;
   }
-  
   nav a {
     padding: 0.5rem;
     margin: 3em;
@@ -70,12 +64,9 @@
     text-transform: uppercase;
     font-size: 14px;
   }
-  
   nav a:hover {
     color: #000;
-  }
-  
-  
+  } 
   body {
       visibility: visible!important;
     background: #f0f0f0;
@@ -85,11 +76,9 @@
     color: #222;
     line-height: 1.5;
   }
-  
   div {
     display: block;
   }
-  
   h3 {
     font-weight: 400;
     font-size: 2em;
@@ -98,7 +87,6 @@
     line-height: 1.4;
     clear: both;
   }
-  
   h4 {
     font-weight: 500;
     font-size: 16px;
@@ -111,7 +99,6 @@
     margin-inline-start: 0px;
     margin-inline-end: 0px;
   }
-  
   p {
     margin-block-start: 1em;
     margin-block-end: 1em;
@@ -123,7 +110,6 @@
     padding: 0 0 1rem 1rem;
     margin: 0;
   }
-  
   a {
     color: #0f9b4f;
     text-decoration: none;
@@ -133,13 +119,11 @@
   a:-webkit-any-link {
     cursor: pointer;
   }
-  
   .large {
     font-weight: 300;
     font-size: 1.66em;
     color: #5b5b5b;
   }
-  
   #line{
     border-bottom: 0.1em solid;
     border-bottom-color:rgba(0,0,0,0.3);
@@ -154,13 +138,10 @@
      'one'
      'two'
      'three';
-   
   }
-  
   #block1 {
-    height:500px;
+    height:500px;/*change here*/
     grid-area: one;
-
   }
   #block2 {
     grid-area: two;
@@ -168,14 +149,12 @@
   #block3{
     grid-area: three;
   }
-
+  /*Miguel's WORLDMAP */
   #worldBlock {
     padding-left:10%;
     width:100%;
     height:400;
   }
-
-  
   @media screen and (min-width: 55em) {
     .section-grid {
         grid-template-areas:
@@ -183,7 +162,6 @@
         'three one one';
     }
   }
-  
   .section-heading {
     background-color: #14c967;
     background-image: url("foodbackground.png");
@@ -204,9 +182,7 @@
     line-height: 1.4;
     clear: both;
   }
-  
-  
-  .section2{
+    .section2{
     background-color: #f0f0f0;
     height:auto;
   }
@@ -221,24 +197,24 @@
      'two'
      'three'
      'four';
-   
   }
   
   #vis1 {
-    height:400px;
+    height:400px;/*change here*/
     width: 100%;
     grid-area: one;
   }
+  /*Clarissas bar-chart*/
   #top6{
     padding-left: 5%;
     padding-top: 1em;
   }
   #vis2 {
-    height:400px;
+    height:400px; /* Change here*/
     width: 100%;
     grid-area: two;
   }
-
+  /*clarissa's Pie-Chart block*/
   #myPieChart{
     padding-left: 36%;
     padding-top: 1em;
@@ -251,15 +227,23 @@
   }
   
   #vis3{
-    height:600px;
+    height:750px; /*Change here*/
     width: 100%;
     grid-area: three;
   }
+  /*Marinas Bubble Chart*/
+  #bubbleChart{
+    height:100px ;
+    width: 100px ;
+  }
+
+
   #vis4{
-    height:750px;
+    height:750px;/*Change here*/
     width: 100%;
     grid-area: four;
   }
+  /*Miguel's Chord-Chart size*/
   #chord{
     padding-top: 2em;
   }
@@ -278,30 +262,7 @@
   .vis:hover{
     background-color: #fff;
   }
-  
-  #tableOverlay {
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 2;
-    cursor: pointer;
     
-  }
-  iframe{
-    border:solid;
-    border-color: #14c967;
-    margin: 10%;
-    width: 80%;
-    height: 70%;
-    
-  }
-  
   .section3{
     background-color: #ffffff;
   }

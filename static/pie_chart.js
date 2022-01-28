@@ -1,3 +1,7 @@
+/*
+    author: Clarissa
+*/
+
 {const piePath= "static/data/country-data.json";
 
 

@@ -1,4 +1,7 @@
-{//console.log(jsonPath)
+{   /*
+        author: Clarissa
+    */
+
 const top6Path= "static/data/top6_ingredients.json";
 
 // set the dimensions and margins of the graph
