@@ -88,8 +88,6 @@
       .duration(200)
       .style("opacity", 1)
       .style("stroke", "black");
-
-        
   }
 
   function whileMouseMove(event) {
@@ -176,7 +174,7 @@
       const yRatio = height / 8
 
       const leftPadding =  xRatio
-      const upperPadding = 6 *yRatio
+      const upperPadding = 6 *yRatio + 20
 
       const legend = svg.append('g')
         .attr("class", "legend")
