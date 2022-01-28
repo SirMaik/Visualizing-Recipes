@@ -137,6 +137,7 @@ function drawBar (){
         // create Bars
         const u = svg_top6.selectAll("rect")
             .data(data)
+            
         
         u   
             .enter()
@@ -149,9 +150,10 @@ function drawBar (){
                 .attr("width", x.bandwidth())
                 .attr("height", d => h  - y(d.ingredient_counts))
                 .attr("fill", "#14c967")
+                .attr("id","barchart")    
                
         //lable values for each bar      
-        d3.selectAll("rect")
+        svg_top6.selectAll("rect")
             .on("mouseover", function(event,d){ 
                 mouseover_bar(event,d); 
                 d3.select(this)
