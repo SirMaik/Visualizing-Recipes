@@ -83,17 +83,17 @@ Yaxis= svg_top6.append("g")
 
 // titel Y axis:
 svg_top6.append("text")
-            .attr("text-anchor", "end")
-            .attr("transform", "rotate(-90)")
-            .attr("y", -45)
-            .attr("x", -20)
-            .text("Number of counts")
+        .attr("text-anchor", "end")
+        .attr("transform", "rotate(-90)")
+        .attr("y", -45)
+        .attr("x", -20)
+        .text("Number of counts")
 
 
 function selectedData_bar(dataset){
     selected_country= getvalue_bar()
     var data_filter = dataset.filter( element => element.country ==selected_country)
-    console.log(data_filter)
+    //console.log(data_filter)
 
     return data_filter
 }
@@ -104,7 +104,7 @@ function drawBar (){
         //console.log(data)
 
         var counts = data.map(d => d["ingredient_counts"])
-        console.log(counts)
+        //console.log(counts)
 
         var minvalue = d3.min(counts);
         var maxvalue = d3.max(counts);
