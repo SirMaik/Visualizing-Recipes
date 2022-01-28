@@ -139,8 +139,13 @@
      'two'
      'three';
   }
+  #worldMap {
+    position: "absolute";
+  }
   #block1 {
-    height:500px;/*change here*/
+    padding-left:5%;
+    height: 500px;
+    width: 750px;
     grid-area: one;
   }
   #block2 {
@@ -149,12 +154,7 @@
   #block3{
     grid-area: three;
   }
-  /*Miguel's WORLDMAP */
-  #worldBlock {
-    padding-left:10%;
-    width:100%;
-    height:400;
-  }
+
   @media screen and (min-width: 55em) {
     .section-grid {
         grid-template-areas:
@@ -211,11 +211,10 @@
   }
   #vis2 {
     height:450px; /* Change here*/
-    width: 100%;
-    grid-area: two;
-  }
-  /*clarissa's Pie-Chart block*/
-  #myPieChart{
+    width: 100%;#worldMap {
+      +    position: "absolute";
+      +  }
+      
     padding-left: 36%;
     padding-top: 1em;
     padding-bottom: 3em;
