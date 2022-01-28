@@ -1,5 +1,10 @@
-
+{/*
+    author: Marina
+  */
 // set the size and margins of the graph
+
+const csvPath= "static/data/recipes_by_cuisine_mean.csv";
+
 const margin = {top: 100, right: 20, bottom: 30, left: 50},
     width = 800 - margin.left - margin.right,
     height = 670 - margin.top - margin.bottom;
@@ -7,7 +12,7 @@ const margin = {top: 100, right: 20, bottom: 30, left: 50},
 // add svg to the body of the page
 const shiftx = 40
 
-const svg = d3.select("svg")
+const svg = d3.select("#bubbleChart")
   .append("svg")
     .attr("width", width+ margin.left + margin.right + shiftx)
     .attr("height", height + margin.top + margin.bottom)
@@ -327,7 +332,7 @@ function addText(d, active){
   
 //Read the data
 // Original source: https://www.d3-graph-gallery.com/graph/bubble_basic.html
-d3.csv(dataset).then(function(data) {
+d3.csv(csvPath).then(function(data) {
   hidden = 0.1
   visible = 1
   
@@ -369,3 +374,4 @@ d3.csv(dataset).then(function(data) {
 
 
 })
+}

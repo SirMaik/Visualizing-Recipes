@@ -200,7 +200,7 @@
   }
   
   #vis1 {
-    height:400px;/*change here*/
+    height:450px;/*change here*/
     width: 100%;
     grid-area: one;
   }
@@ -210,7 +210,7 @@
     padding-top: 1em;
   }
   #vis2 {
-    height:400px; /* Change here*/
+    height:450px; /* Change here*/
     width: 100%;
     grid-area: two;
   }
@@ -227,7 +227,7 @@
   }
   
   #vis3{
-    height:750px; /*Change here*/
+    height:1000px; /*Change here*/
     width: 100%;
     grid-area: three;
   }
@@ -246,13 +246,15 @@
   /*Miguel's Chord-Chart size*/
   #chord{
     padding-top: 2em;
+    padding-left: 8%;
   }
   
   @media screen and (min-width: 55em) {
     .section-grid-statistic {
         grid-template-areas:
         'one two'
-        'three four';
+        'three three'
+        'four four';
     }
   }
   

@@ -37,7 +37,7 @@
       <div class = "section-grid" id= "line">
         <div id="block1">
           <div id="worldBlock" >
-            <svg id="worldMap" width="750" height="500"></svg>
+            <svg id="worldMap" width="720" height="480"></svg>
             <script src="{{ url_for('static', filename='world_map.js')}}"></script>
           </div>
         </div>
@@ -76,7 +76,7 @@
 
     <div class= "section2">
       <div class = "section-grid-statistic">
-        
+
          <!--Clarissa's Bar-Chart visualization--> 
         <div class="vis" id="vis1">
            <!-- Selectoption for bar chart-->
@@ -230,9 +230,17 @@
 
         <!--Marina's Bubblechart visualization-->
         <div class="vis" id="vis3">
-          <div id= bubbleChart>
-           
+          <div  id= "bubbleChart">
+            <script src="{{ url_for('static', filename='bubblechart.js')}}"></script>  
+            <div id="tooltip" class="hidden"></div>
+            
           </div>
+
+          
+          
+            
+           
+        </div>
             
         <p class= large> Titel: Marina's bubblechart</p>   
         <p>Add here the discription!</p>
