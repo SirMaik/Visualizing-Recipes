@@ -1,4 +1,4 @@
-{
+
 // set the size and margins of the graph
 const margin = {top: 100, right: 20, bottom: 30, left: 50},
     width = 800 - margin.left - margin.right,
@@ -33,6 +33,8 @@ const y = d3.scaleLinear()
     .call(d3.axisLeft(y));
  
  
+
+// color scale was tried, but did not yield usable information
 
 // Add color scale for rating
 // const c = d3.scaleSequential()
@@ -76,6 +78,8 @@ const xValCircle = width - 130
 const xValLabel = width 
 const yValCircle = 150
 const legendYShift = 120
+
+// the ellipses below and the infotexts appear after regional bubbles are clicked
 
 ellipse_eu = svg.append("ellipse")
   .attr("rx", 80)  
@@ -154,15 +158,9 @@ infotext_afr = svg.append("text")
   .style("fill", "transparent")
   .text("The three cuisines with the shortest average recipes are African")
 
-  
+ 
 
-// add legend for bubble sizes
-// Source: https://www.d3-graph-gallery.com/graph/bubble_legend.html
-
-
-
-
-// add a line with instruction
+// add lines with instructions (1)
 svg.append("text")
   .attr("class", "legendTitle")
   .attr("text-anchor", "middle")
@@ -171,7 +169,7 @@ svg.append("text")
   .style("font-size", 14)
   .text("Hover over each bubble to see the cuisine.")
 
-
+// add lines with instructions (2)
 svg.append("text")
   .attr("class", "legendTitle")
   .attr("text-anchor", "middle")
@@ -181,6 +179,7 @@ svg.append("text")
   .style("font-size", 14)
   .text("Click on a regional bubble to expand into smaller bubbles.")
 
+// add lines with instructions (3)  
 svg.append("text")
   .attr("class", "legendTitle")
   .attr("text-anchor", "middle")
@@ -264,7 +263,8 @@ function onMouseOut(d){
     
 // add text depending on selection
 function addText(d, active){
-  
+  // the annotations should only appear anew if the small country bubbles are hidden at the beginning
+  // for each region, I chose exemplary countries to check for opacity
   if (d.region == "european" && d3.select("#icelandic").style("opacity") == hidden && active) {
     eu_opacity = 1
     eu_color = "black"
@@ -313,6 +313,7 @@ function addText(d, active){
     afr_opacity = 0
     afr_color = "transparent"}
   
+  // depending on the information from above, the annotations are made visible or not
   infotext_eu.transition().delay(200).duration(600).style("fill", eu_color)
   ellipse_eu.transition().delay(200).duration(600).style("opacity", eu_opacity)
   infotext_kor.transition().delay(200).duration(600).style("fill", kor_color)
@@ -325,7 +326,7 @@ function addText(d, active){
 }
   
 //Read the data
-// Source: https://www.d3-graph-gallery.com/graph/bubble_basic.html
+// Original source: https://www.d3-graph-gallery.com/graph/bubble_basic.html
 d3.csv(dataset).then(function(data) {
   hidden = 0.1
   visible = 1
@@ -349,17 +350,22 @@ d3.csv(dataset).then(function(data) {
       .on("mouseover",(event, d) => onMouseOver(d))
       .on("mouseout", (event, d) => onMouseOut(d))
       .on("click", function(event){
+        // after a click on a bubble, the opacity of each bubble is changed according to the region of the clicked bubble
         
         opacity = d => (event.srcElement.__data__.region == d.region && active) ? 
+        // if the region bubbles are visible, the country bubbles should be hidden, and vice versa
         (d.continent == "false" ? visible : hidden):(d.continent == "false" ? hidden : visible);
+        // to enable switching visibility on and off, an "active" variable is introduced
         const active   = event.srcElement.active ? false : true;
+        // transition happens here
         d3.selectAll("." + event.srcElement.__data__.region)
         .transition()
         .delay(100)
         .duration(200).style("opacity", opacity);
+        // the annotations are made here
         addText(event.srcElement.__data__, active)
         event.srcElement.active = active;
       });   
 
 
-})}
+})
