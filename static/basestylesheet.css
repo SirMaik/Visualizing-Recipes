@@ -227,14 +227,15 @@
   }
   
   #vis3{
-    height:1000px; /*Change here*/
+    height:750px; /*Change here*/
     width: 100%;
     grid-area: three;
   }
   /*Marinas Bubble Chart*/
   #bubbleChart{
-    height:100px ;
-    width: 100px ;
+  height:450px;
+  padding-top:2em;
+  padding-left:2em;
   }
 
 
@@ -253,8 +254,7 @@
     .section-grid-statistic {
         grid-template-areas:
         'one two'
-        'three three'
-        'four four';
+        'three four';
     }
   }
   

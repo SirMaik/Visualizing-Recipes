@@ -5,19 +5,30 @@
 
 const csvPath= "static/data/recipes_by_cuisine_mean.csv";
 
-const margin = {top: 100, right: 20, bottom: 30, left: 50},
-    width = 800 - margin.left - margin.right,
-    height = 670 - margin.top - margin.bottom;
+const margin = {top: 100, right: 50, bottom: 30, left: 10},
+    width = 600 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
 
 // add svg to the body of the page
 const shiftx = 40
 
 const svg = d3.select("#bubbleChart")
   .append("svg")
-    .attr("width", width+ margin.left + margin.right + shiftx)
+    .attr("width", width+ margin.left + margin.right )//+ //shiftx)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
+
+ //Tooltip
+ let tooltip2 = d3.select("svg")
+            .append("div")
+            .attr("class", "hidden")
+           // .style("background-color", "rgba(255,255,255, 0.7)")
+            //.style("border-radius", "5px")
+            //.style("padding", "10px")
+           // .style("position", "absolute")
+           // .style("visibility", "hidden");
+
 
 // Add x-axis
 const x = d3.scaleLinear()
@@ -25,7 +36,7 @@ const x = d3.scaleLinear()
       .range([ 0, width ]);
     svg.append("g")
       .attr("transform", `translate(${shiftx}, ${height - 20})`)
-      .style("font-size", 18)
+      .style("font-size", 12)
       .call(d3.axisBottom(x).ticks(10));
 
 // Add Y axis
@@ -34,11 +45,9 @@ const y = d3.scaleLinear()
     .range([height, 0]);
  svg.append("g")
     .attr("transform", `translate(${shiftx}, -20)`)
-    .style("font-size", 18)
+    .style("font-size", 12)
     .call(d3.axisLeft(y));
  
- 
-
 // color scale was tried, but did not yield usable information
 
 // Add color scale for rating
@@ -50,15 +59,16 @@ regions = ['asian', 'north-american', 'south-american', 'european', 'african', '
 // color scale for regions
 const c = d3.scaleOrdinal()
   .domain(regions)
-  .range(d3.schemeSet3);
+  .range(['#440154','#472d7b','#3b528b','#2c728e','#21918c','#28ae80','#5ec962','#addc30','#fde725'])
+  //.range([]d3.schemeSet3);
 
 // Label X-Axis
 svg.append("text")
   .attr("class", "x label")
   .attr("text-anchor", "end")
-  .attr("x", width - 210)
-  .attr("y", height + 30 )
-  .style("font-size", 22)
+  .attr("x", width - 230)
+  .attr("y", height + 20 )
+  .style("font-size", 14)
   .text("Time to cook (minutes)");
 
 // Label Y-Axis
@@ -66,18 +76,18 @@ svg.append("text")
     .attr("class", "y label")
     .attr("text-anchor", "end")
     .attr("x", -height/4)
-    .attr("y", -20)
-    .style("font-size", 22)
+    .attr("y", -1)
+    .style("font-size", 14)
     .attr("transform", "rotate(-90)")
     .text("Number of ingredients");
     
-// Add title
+/* Add title
 svg.append("text")
-  .attr("class", "title")
+  .attr("class", "large")
   .attr("x", 0)
   .attr("y", -50)
   .text("Average Recipe by Region: Time to cook vs. Number of ingredients")
-
+*/
 
 const xValCircle = width - 130 
 const xValLabel = width 
@@ -133,7 +143,7 @@ infotext_eu = svg.append("text")
   .attr("x", xValCircle + 190)
   .attr("y", yValCircle - legendYShift + 100)
   .attr("dy", "1em")
-  .style("font-size", 14)
+  .style("font-size", 12)
   .style("fill", "transparent")
   .text("Many european recipes involve fermentation or brining")
 
@@ -142,7 +152,7 @@ infotext_kor = svg.append("text")
   .attr("x", xValCircle + 180)
   .attr("y", yValCircle - legendYShift +  100)
   .attr("dy", "1em")
-  .style("font-size", 14)
+  .style("font-size", 12)
   .style("fill", "transparent")
   .text("Kimchi, a typical Korean dish, takes a lot of time to ferment")
 
@@ -151,7 +161,7 @@ infotext_ind = svg.append("text")
   .attr("text-anchor", "end")
   .attr("x", xValCircle - 20)
   .attr("y", yValCircle - legendYShift + 60)
-  .style("font-size", 16)
+  .style("font-size", 12)
   .style("fill", "transparent")
   .text("On average, indian dishes require more ingredients.")
 
@@ -159,13 +169,11 @@ infotext_afr = svg.append("text")
   .attr("text-anchor", "end")
   .attr("x", xValCircle - 0)
   .attr("y", yValCircle - legendYShift + 250)
-  .style("font-size", 16)
+  .style("font-size", 12)
   .style("fill", "transparent")
   .text("The three cuisines with the shortest average recipes are African")
 
- 
-
-// add lines with instructions (1)
+/* add lines with instructions (1)
 svg.append("text")
   .attr("class", "legendTitle")
   .attr("text-anchor", "middle")
@@ -193,16 +201,16 @@ svg.append("text")
   .attr("dy", "2em")
   .style("font-size", 14)
   .text("The number of countries per regional bubble is encoded in its size.")
-
+*/
 // y-Offset scale for regions
 var ylegend = d3.scaleOrdinal()
   .domain(regions)  
-  .range([0, 20,40,60,80,100,120,140, 160]) 
+  .range([-85,-70,-55,-40,-25,-10,5,20,35]) 
 
 
 
-xCircle = 100
-xLabel = xCircle + 30
+xCircle = 120
+xLabel = xCircle + 10
 
 // legend circles regions
 svg
@@ -210,11 +218,11 @@ svg
   .data(regions)
   .enter()
   .append("circle")
-    .attr("cx", xCircle + 400)
-    .attr("cy", d => ylegend(d) + 300)
-    .attr("r", 7)
+    .attr("cx", xCircle + 350)
+    .attr("cy", d => ylegend(d) + 7)
+    .attr("r", 5)
     .style("fill", d => c(d))
-    .attr("stroke", "black")
+    //.attr("stroke", "black")
 
 
 // legend circle labels
@@ -223,17 +231,17 @@ svg
   .data(regions)
   .enter()
   .append("text")
-    .attr('x', xLabel + 400)
-    .attr('y', d => ylegend(d) + 300 )
+    .attr('x', xLabel + 350)
+    .attr('y', d => ylegend(d) + 7)
     .text(d => d)
-    .style("font-size", 14)
+    .style("font-size", 11)
     .attr('alignment-baseline', 'middle')
 
 // mouseover tooltip
 function onMouseOver(d){
   // update tooltip position and value
-  d3.select('#tooltip')
-      .append("div")
+  tooltip2
+     // .append("div")
       // initial opacity is 0
       .style("opacity", 0)
       .attr("data-html", "true")
@@ -256,7 +264,7 @@ function onMouseOver(d){
 
 // mouseout tooltip
 function onMouseOut(d){
-  d3.selectAll('#tooltip')
+  tooltip2
     .selectAll("div")
     //transition to opacity of 0
     .transition()
