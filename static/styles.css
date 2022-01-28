@@ -1,0 +1,28 @@
+p{
+  font: 10pt sans-serif;
+  margin: 3px;
+  color: black;
+}
+  
+label {
+  font: 11pt sans-serif;
+  padding: 3px;
+  margin: 3px;
+  color: black;
+}
+
+body{
+  font-size: 16px;
+  font-family: arial;
+  background-color: rgb(255, 248, 239);
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  
+}
+
+.legendTitle {
+  font-size: 11px;
+}
