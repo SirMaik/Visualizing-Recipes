@@ -131,9 +131,23 @@ function update() {
         const recipeTypeNone = data.map(({percentage_non_type:nontype}) =>nontype );
         const recipeTypeVeggi= data.map(({percentage_veggi_n_recipes:veggi, }) =>veggi );
         const recipeTypeVegan= data.map(({percentage_vegan_n_recipes:vegan}) =>vegan );
+
+        var recipeTypeList= []
         //compute it to a list
-        const recipeTypeList= [].concat(recipeTypeNone , recipeTypeVeggi, recipeTypeVegan);
-        
+
+        var value_selected= getvalue_pie()
+        //seperate for world data
+        if( value_selected =="world"){
+            var maxnon = d3.max(recipeTypeNone);
+            var maxveggi= d3.max(recipeTypeVeggi);
+            var maxvegan= d3.max(recipeTypeVegan);
+            recipeTypeList= [maxnon,maxveggi,maxvegan]
+        }
+
+        else{
+            recipeTypeList=[].concat(recipeTypeNone , recipeTypeVeggi, recipeTypeVegan);
+        }
+        //console.log(recipeTypeList)
   
         //Compute the position on the pie
         const pie = d3.pie().value(function(d) { return d[1];})
