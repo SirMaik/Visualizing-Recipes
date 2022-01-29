@@ -90,7 +90,7 @@ $ npm start
 > **Build Website**
 > - create a Layout-Draft
 > - search for a background image on [freepic](http://www.freepik.com) and optimize color 
-> - build the [HTML-file](templates/base.html)and the corrosponding, [style-sheet](static/basestylesheet.css)
+> - build the [HTML-file](templates/base.html) and the corrosponding, [style-sheet](static/basestylesheet.css)
 > 
 >  **Data Wrangling:**
 >  - generate value counts of all recipes, vegetarian recipes and vegan recipes for each country and calculate the percentages (needed for pie chart) 
@@ -101,33 +101,35 @@ $ npm start
 >  - only keep the top 6 of the ingredients for each country
 >  - the whole script for deriving the data is [here](data-manipulation/conversion-scripts/retrieve_data_cusines_top6ingredients.ipynb)
 > 
->  **Visualisations:**
-> <img width="60%" alt="screenshot_bar_chart" src="https://user-images.githubusercontent.com/96427238/151653421-ebed4662-2031-4a07-9dd5-2f40f7cba9ab.png">
-> 
+>  **Visualisations:**\
 >  ***Bar chart***
+>  
+>  <img width="60%" alt="screenshot_bar_chart" src="https://user-images.githubusercontent.com/96427238/151653421-ebed4662-2031-4a07-9dd5-2f40f7cba9ab.png">
+>  
 >  - encode information in interactive [bar chart](static/bar_chart.js)
 >  - add select option to only display the Country/cuisine of interest
 >  - it is based on [this code](https://www.d3-graph-gallery.com/graph/barplot_button_data_csv.html)
->  - and inspired by and [this code](https://www.d3-graph-gallery.com/graph/scatter_buttonXlim.html)
+>  - and inspired by [this code](https://www.d3-graph-gallery.com/graph/scatter_buttonXlim.html)
+>
+>  ***Pie chart***
 >  
 >  <img width="60%" alt="screenshot_pie_chart" src="https://user-images.githubusercontent.com/96427238/151653426-19628cad-0b82-48b2-852d-81b8538e5afb.png">
 >  
->  ***Pie chart***
 >  - encode information in interactive [JS-file for pie chart](static/pie_chart.js)
 >  - add select option to only display the Country/cuisine of interest
 >  - it is based on this two codes: [code 1](https://www.geeksforgeeks.org/d3-js-pie-function/) and [code 2](https://www.d3-graph-gallery.com/graph/pie_changeData.html)
 >
 >  **Findings:**
+>  
 >  ***Bar chart***
->  - 
+>  - onion is nearly in all countrys/cuisines in the top 6 of used ingredients
+>  - garlic is also one of the most used ingredients 
+>  
 >  ***Pie chart***
->  -
+>  - nearly half of all Indian recipes are vegetarian or vegan. 
+>  - some Scandinavian countries (Norwegain and finnland) have a particularly high proportion of vegetarian recipes in comparison with other European cuisines.
 
 ## Project Status
 Project is: _in progress_ 
 
-## Acknowledgements
-Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
+
