@@ -65,7 +65,7 @@ $ npm start
 >- add "insight" annotations to bubble chart
 > 
 >**Findings:**
->- The average recipe cooking time by country was longer than previously thought, with some countries averaging at 5 hours (!). The median cooking time was considerably shorter. This fact, combined with a close look at the data led to the conclusion that >a low number of recipes per cuisine combined with extreme outliers that took several weeks per recipe (e.g. [letting foods ferment in a fridge for several weeks](https://www.food.com/recipe/keep-it-going-german-friendship-cake-26995)) led to bigger average numbers. 
+>- The average recipe cooking time by country was longer than previously thought, with some countries averaging at 5 hours (!). The median cooking time was considerably shorter. This fact, combined with a close look at the data led to the conclusion that a low number of recipes per cuisine combined with extreme outliers that took several weeks per recipe (e.g. [letting foods ferment in a fridge for several weeks](https://www.food.com/recipe/keep-it-going-german-friendship-cake-26995)) led to bigger average numbers. 
 > - When averaging out the recipe information by cuisine, clustering could be seen that spanned across countries and led to differences between overarching regions.
 
 ##
