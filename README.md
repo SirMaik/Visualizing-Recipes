@@ -9,6 +9,10 @@ Explore the data of the recipes from [Food.com](https://www.food.com/). This pro
 * [Acknowledgements](#acknowledgements)
 
 ## General Information
+
+This project was conceived in the context of the course "Visualisation of Biological Data" taught by Prof. Michael Krone at the University of Tübingen. We explored information that could be obtained from a dataset containing information from the food and recipe website [food.com] (https://www.food.com/). We focused on the interplay of different cuisines and ingredients in the recipes contained in the dataset. 
+
+Aggregate recipe data could reveal information about larger trends in culinary regions. Assessing the similarities and differences of regional cuisines yielded interesting insights.
 - Provide general information about your project here.
 - What problem does it (intend to) solve?
 - What is the purpose of your project?
@@ -46,18 +50,18 @@ $ npm start
 > 
 > <img width="60%" alt="screenshot_bubble_chart" src="https://user-images.githubusercontent.com/96427238/151653456-007dd0a3-613e-4b38-80e4-f40084edaa04.png">
 > 
->Data Wrangling: 
+>**Data Wrangling:**
 >- extracting country cuisines from all recipes by retaining all tags that corresponded to a cuisine
 >- adding regional tags to each country cuisine
 >- extracting vegetarian and vegan tags from the data
->- drop all recipes that did not contain cuisine tags (about half of all recipes)
+>- drop all recipes that did not contain cuisine tags (about half of all recipes) 
 >- it was attempted to visualise all recipes in one graph, but the sheer number of recipes made this quite hard, resulting in slow loading times and no visible clustering or added information
->- average the data by cuisine, add averages for regional data as well, remove uncharacteristic outliers
+>- average the data by cuisine, add averages for regional data as well, remove uncharacteristic outliers (recipes where cooking time did not reflect the steps in the recipe)
 >- average cook time and number of ingredients was chosen for the axes. One feature that was also considered was average rating, but the analysis revealed that the average rating consistently ranged between 4 and 4.5, therefore not yielding interesting findings.
->Visualisation: 
+>**Visualisation:**
 >- encode information in interactive bubble chart
 >- add "insight" annotations to bubble chart
->Findings: 
+>**Findings:**
 >- The average recipe cooking time by country was longer than previously thought, with some countries averaging at 5 hours (!). The median cooking time was considerably shorter. This fact, combined with a close look at the data led to the conclusion that >a low number of recipes per cuisine combined with extreme outliers that took several weeks per recipe (e.g. [letting foods ferment in a fridge for several weeks](https://www.food.com/recipe/keep-it-going-german-friendship-cake-26995)) led to bigger average numbers. 
 > - When averaging out the recipe information by cuisine, clustering could be seen that spanned across countries and led to differences between overarching regions.
 
