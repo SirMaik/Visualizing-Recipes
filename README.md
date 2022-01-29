@@ -58,9 +58,12 @@ $ npm start
 >- it was attempted to visualise all recipes in one graph, but the sheer number of recipes made this quite hard, resulting in slow loading times and no visible clustering or added information
 >- average the data by cuisine, add averages for regional data as well, remove uncharacteristic outliers (recipes where cooking time did not reflect the steps in the recipe)
 >- average cook time and number of ingredients was chosen for the axes. One feature that was also considered was average rating, but the analysis revealed that the average rating consistently ranged between 4 and 4.5, therefore not yielding interesting findings.
+>
 >**Visualisation:**
 >- encode information in interactive bubble chart
+>- You can find the source of the basic bubble chart [here](https://www.d3-graph-gallery.com/graph/bubble_color.html).
 >- add "insight" annotations to bubble chart
+> 
 >**Findings:**
 >- The average recipe cooking time by country was longer than previously thought, with some countries averaging at 5 hours (!). The median cooking time was considerably shorter. This fact, combined with a close look at the data led to the conclusion that >a low number of recipes per cuisine combined with extreme outliers that took several weeks per recipe (e.g. [letting foods ferment in a fridge for several weeks](https://www.food.com/recipe/keep-it-going-german-friendship-cake-26995)) led to bigger average numbers. 
 > - When averaging out the recipe information by cuisine, clustering could be seen that spanned across countries and led to differences between overarching regions.
