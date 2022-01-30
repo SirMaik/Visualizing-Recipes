@@ -97,7 +97,7 @@ $ npm start
 >  - generate a general ingredient list over all recipes, and count them how often the occure in the list of recipies. (needed for bar chart)
 >  - sort the ingredient list by counts
 >  - remove ingredients which are not interesting eg.(salt, peper, water)
->  - adding the values for eggs and egg together (only did this for egg, but there are more ingredients, where we could do that) 
+>  - adding the values for some ingredients together (eggs & egg, onion & onions, garlic cloves & garlic & garlic clove) 
 >  - only keep the top 6 of the ingredients for each country
 >  - the whole script for deriving the data is [here](data-manipulation/conversion-scripts/retrieve_data_cusines_top6ingredients.ipynb)
 > 
