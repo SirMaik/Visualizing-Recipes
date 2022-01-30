@@ -10,7 +10,7 @@ const w_pie = 200,
 h_pie = 200,
 m_pie = 10;
 
-// The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
+// The radius of the pieplot is half of height and width
 const radius = Math.min(w_pie, h_pie) / 2 - m_pie;
 
 const keys= ["0", "1", "2"]
@@ -26,6 +26,7 @@ const color = d3.scaleOrdinal()
 //function for getting only selected data
 function selectedData_pie(dataset){
 
+//hard code world data
 const worlddata =[
         {main_tag : "world"},
         {percentage_non_type: "75.69"},
@@ -57,7 +58,7 @@ const svg_pie = d3.select("#myPieChart")
     .append("g")
     .attr("transform", `translate(${w_pie/2}, ${h_pie/2})`)
 
-// Add a Tooltip
+// add a Tooltip
 let pietooltip = div
     .append("div")
     .attr("id", "pieTooltip")
@@ -67,6 +68,7 @@ let pietooltip = div
     .style("position", "absolute")
     .style("visibility", "hidden");       
 
+//function on mouse over
 function mouseover_pie(event, d) {
     pietooltip
         .style("visibility", "visible")
@@ -74,7 +76,7 @@ function mouseover_pie(event, d) {
         .style("top", (event.clientY+5) + "px")
         .html(extractText_pie(d));
 }
-
+//function on mouse move
 function mousemove_pie(event) {
     var tooltipHeight = document.getElementById('pieTooltip').clientHeight;    
     //console.log(event)
@@ -82,12 +84,12 @@ function mousemove_pie(event) {
         .style("left", (event.pageX+15) + "px")
         .style("top", (event.pageY+15) + "px")
 }
-
+//function on mouse out
 function mouseout_pie() {
     pietooltip.style("visibility", "hidden");
 }
 
-// Function extracts text into data
+// function extracts text into data
 function extractText_pie(d) {
     text = d.value +"%";
     return text;
@@ -113,21 +115,19 @@ svg_pie.selectAll("mylabels")
             .text(function(d){ return d})
             .attr("text-anchor", "left")
             .style("alignment-baseline", "middle")
+          
 
-            
-// A function that create / update the plot
 //source    https://www.geeksforgeeks.org/d3-js-pie-function/
 //          https://www.d3-graph-gallery.com/graph/pie_changeData.html
 
+// A function that create / update the plot
 function update() {
-
 
     d3.json(piePath).then(function(data){
         
-        //call function
+        //call function get selected data
         data= selectedData_pie(data)
-
-        //get the data 
+        //store data values
         const recipeTypeNone = data.map(({percentage_non_type:nontype}) =>nontype );
         const recipeTypeVeggi= data.map(({percentage_veggi_n_recipes:veggi, }) =>veggi );
         const recipeTypeVegan= data.map(({percentage_vegan_n_recipes:vegan}) =>vegan );
@@ -136,7 +136,8 @@ function update() {
         //compute it to a list
 
         var value_selected= getvalue_pie()
-        //seperate for world data
+
+        //seperate case for world data
         if( value_selected =="world"){
             var maxnon = d3.max(recipeTypeNone);
             var maxveggi= d3.max(recipeTypeVeggi);
