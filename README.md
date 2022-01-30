@@ -69,15 +69,15 @@ Copy that link and paste it in Google Chrome.
 > #### Tasks:
 >  **Data Wrangling:**
 >
->  - Retrieve a list with all the tags used in recipes and the number of times they appear in the recipes 
-> Script: /data-manipulation/convertion-scripts/retrieve-tags.py
-> Output file: /data-manipulation/derived-data/tags.csv
->  - Used the file with the recipes and the one with the categories of each recipe to derive a file which contains the number of relations between categories. Only one relation between two categories is counted for each recipe.  
-> Script: /data-manipulation/convertion-scripts/category-relations.py
-> Output file: /data-manipulation/derived-data/category-relations.json
->  - At some point we ended up with three files with data in common (/derived-data/countries.json, /derived-data/recipes_by_cuisine_mean_count_no_long_recipes.csv, /derived-data/cuisine_percentage_number_recipes.csv). I retrieved the information from all of these files and created a new JSON file with all the data. After the script was executed the data some of the data had to be cleaned manually. 
-> Script: /data-manipulation/convertion-scripts/merge-files.py
-> Output file: /data-manipulation/derived-data/country-data.json
+>  - Retrieve a list with all the tags used in recipes and the number of times they appear in the recipes  
+> Script: /data-manipulation/convertion-scripts/retrieve-tags.py  
+> Output file: /data-manipulation/derived-data/tags.csv  
+>  - Used the file with the recipes and the one with the categories of each recipe to derive a file which contains the number of relations between categories. Only one relation between two categories is counted for each recipe.   
+> Script: /data-manipulation/convertion-scripts/category-relations.py  
+> Output file: /data-manipulation/derived-data/category-relations.json  
+>  - At some point we ended up with three files with data in common (/derived-data/countries.json, /derived-data/recipes_by_cuisine_mean_count_no_long_recipes.csv, /derived-data/cuisine_percentage_number_recipes.csv). I retrieved the information from all of these files and created a new JSON file with all the data. After the script was executed the data some of the data had to be cleaned manually.  
+Script: /data-manipulation/convertion-scripts/merge-files.py  
+Output file: /data-manipulation/derived-data/country-data.json  
 >  **Visualisations:**\
 >  ***World map***
 
