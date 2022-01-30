@@ -223,7 +223,7 @@
   }
 
   #vis3{
-    height:750px; /*Change here*/
+    height:800px; /*Change here*/
     width: 100%;
     grid-area: three;
   }
@@ -236,7 +236,7 @@
 
 
   #vis4{
-    height:750px;/*Change here*/
+    height:800px;/*Change here*/
     width: 100%;
     grid-area: four;
   }
