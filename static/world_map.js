@@ -1,6 +1,9 @@
-// Choropleth map
-// https://www.d3-graph-gallery.com/graph/choropleth_basic.html
-
+/*
+ * author: Miguel Ordóñez
+ *
+ * Choropleth map
+ * Modified the following code: https://www.d3-graph-gallery.com/graph/choropleth_basic.html
+ */
 {
   const jsonPath= "static/data/country-data.json";
   const geoURL  = "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson";

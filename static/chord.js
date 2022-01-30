@@ -1,6 +1,9 @@
-// Chord diagram
-// https://observablehq.com/@d3/chord-diagram?collection=@d3/d3-chord
-
+/*
+ * author: Miguel Ordóñez
+ *
+ * Chord diagram
+ * Modified the following code: https://observablehq.com/@d3/chord-diagram?collection=@d3/d3-chord
+ */
 {
     const jsonPath= "static/data/category-relations.json";
 
@@ -81,17 +84,19 @@
             .data(ticks)
             .join("g")
             .attr("transform", d => `rotate(${d.angle * 180 / Math.PI - 90}) translate(${outerRadius},0)`);
-
+        /** 
+         * We won't show the percentages
         labels.append("line")
             .attr("stroke", "currentColor")
             .attr("x2", 5);
-
+        */
+       
         labels.append("text")
             .attr("x", 8)
             .attr("dy", "0.35em")
             .attr("transform", d => d.angle > Math.PI ? "rotate(180) translate(-16)" : null)
             .attr("text-anchor", d => d.angle > Math.PI ? "end" : null)
-            .text(d => formatValue(d.value / n_relations));
+            //.text(d => formatValue(d.value / n_relations));
 
 
         // Display category names
