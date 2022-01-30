@@ -87,7 +87,9 @@ Output file: /data-manipulation/derived-data/country-data.json
 >  **Visualisations:**
 >
 >  ***World map***
->  <img width="60%" alt="screenshot_world_map" src="https://raw.githubusercontent.com/SirMaik/Visualizing-Recipes/main/img/screenshot_world_map.png">  
+>
+>  <img width="60%" alt="screenshot_world_map" src="https://raw.githubusercontent.com/SirMaik/Visualizing-Recipes/main/img/screenshot_world_map.png"> 
+>
 > - Created a choropleth map which shows the world map. Each country is assigned a colour depending on the total number of recipes it has. The coloring scale is logarithmic because the data seems to follow an exponential pattern. When you hover over a country you can see additional data about it. It is possible to zoom and drag the map.
 > - You can find the corresponding script here: [world map](static/world_map.js).
 > - This code is a fork of this [example](https://www.d3-graph-gallery.com/graph/barplot_button_data_csv.html).
@@ -95,6 +97,7 @@ Output file: /data-manipulation/derived-data/country-data.json
 >  ***Chord diagram***
 >
 >  <img width="60%" alt="screenshot_chord_diagram" src="https://raw.githubusercontent.com/SirMaik/Visualizing-Recipes/main/img/screenshot_chord_diagram.png">  
+>
 > - Created a chord diagram which shows the amount of relations between food categories. Two categories are related in a recipe if at least one ingredient of each one of them is present in the recipe. I chose the color gradient that best allows the user to distinguish between categories. You can hover over the categories or the arcs (relations) to see further information about them. 
 > - You can find the corresponding script here: [world map](static/chord.js).
 > - This code is a fork of this [example](https://observablehq.com/@d3/chord-diagram?collection=@d3/d3-chord).
