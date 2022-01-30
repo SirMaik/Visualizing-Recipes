@@ -34,9 +34,9 @@ Windows:
 - Execute run.cmd
 
 Linux: 
-- Execute `$ python3 flaskServer.py`
+- Execute `$ python3 flaskServer.py`  
 
-You will be shown a block of code which says something like "Running on http://127.0.0.1:5000/".
+After this you will be shown a block of code which says something like "Running on http://127.0.0.1:5000/".
 Copy that link and paste it in Google Chrome.
 ## Contributors
 
@@ -67,6 +67,11 @@ Copy that link and paste it in Google Chrome.
 
 > ### SirMaik
 > #### Tasks:
+>
+>  **Project creation:**
+>
+> - Created the github project and the initial layout.  
+>
 >  **Data Wrangling:**
 >
 >  - Retrieve a list with all the tags used in recipes and the number of times they appear in the recipes  
@@ -77,9 +82,37 @@ Copy that link and paste it in Google Chrome.
 > Output file: /data-manipulation/derived-data/category-relations.json  
 >  - At some point we ended up with three files with data in common (/derived-data/countries.json, /derived-data/recipes_by_cuisine_mean_count_no_long_recipes.csv, /derived-data/cuisine_percentage_number_recipes.csv). I retrieved the information from all of these files and created a new JSON file with all the data. After the script was executed the data some of the data had to be cleaned manually.  
 Script: /data-manipulation/convertion-scripts/merge-files.py  
-Output file: /data-manipulation/derived-data/country-data.json   
+Output file: /data-manipulation/derived-data/country-data.json  
+>
 >  **Visualisations:**
+>
 >  ***World map***
+>
+>  <img width="60%" alt="screenshot_world_map" src="https://raw.githubusercontent.com/SirMaik/Visualizing-Recipes/main/img/screenshot_world_map.png"> 
+>
+> - Created a choropleth map which shows the world map. Each country is assigned a colour depending on the total number of recipes it has. The coloring scale is logarithmic because the data seems to follow an exponential pattern. When you hover over a country you can see additional data about it. It is possible to zoom and drag the map.
+> - You can find the corresponding script here: [world map](static/world_map.js).
+> - This code is a fork of this [example](https://www.d3-graph-gallery.com/graph/barplot_button_data_csv.html).
+>
+>  ***Chord diagram***
+>
+>  <img width="60%" alt="screenshot_chord_diagram" src="https://raw.githubusercontent.com/SirMaik/Visualizing-Recipes/main/img/screenshot_chord_diagram.png">  
+>
+> - Created a chord diagram which shows the amount of relations between food categories. Two categories are related in a recipe if at least one ingredient of each one of them is present in the recipe. I chose the color gradient that best allows the user to distinguish between categories. You can hover over the categories or the arcs (relations) to see further information about them. 
+> - You can find the corresponding script here: [world map](static/chord.js).
+> - This code is a fork of this [example](https://observablehq.com/@d3/chord-diagram?collection=@d3/d3-chord).
+>  
+> **Findings:**
+>  
+>  **World map**
+>  
+> - The number of recipes per country seems to follow an exponential pattern. 
+> - The USA has a lot more recipes than the rest of the countries, which makes sense because the page is hosted in the USA and is in english.
+>  
+>  **Chord diagram**
+>  
+> - The category "spices" has the most number of relations, followed by "dairy" and "vegetables".
+> - The number of relations involving meat represent only the  10.2% of the total number of relations. One possible cause might be that meat recipes don't use many other ingredients or maybe there are not that many recipes that use meat as an ingredient. 
 
 ##
 
