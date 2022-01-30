@@ -77,8 +77,8 @@ Copy that link and paste it in Google Chrome.
 > Output file: /data-manipulation/derived-data/category-relations.json  
 >  - At some point we ended up with three files with data in common (/derived-data/countries.json, /derived-data/recipes_by_cuisine_mean_count_no_long_recipes.csv, /derived-data/cuisine_percentage_number_recipes.csv). I retrieved the information from all of these files and created a new JSON file with all the data. After the script was executed the data some of the data had to be cleaned manually.  
 Script: /data-manipulation/convertion-scripts/merge-files.py  
-Output file: /data-manipulation/derived-data/country-data.json  
->  **Visualisations:**\
+Output file: /data-manipulation/derived-data/country-data.json   
+>  **Visualisations:**
 >  ***World map***
 
 ##
