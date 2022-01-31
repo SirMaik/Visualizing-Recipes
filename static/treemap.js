@@ -29,7 +29,7 @@ function tile(node, x0, y0, x1, y1) {
 
 
 // read the data
-const DATA_URL = "data.json"
+const DATA_URL = "static/data/hierarchy_categories.json"
 d3.json(DATA_URL).then(function (data) {
     data = aggregateData(data)
     drawTiles(data)
@@ -72,7 +72,7 @@ function drawTiles(data) {
     const x = d3.scaleLinear().rangeRound([0, width]);
     const y = d3.scaleLinear().rangeRound([0, height]);
 
-    const svg = d3.select("svg")
+    const svg = d3.select("#treemap")
         .attr("viewBox", [0.5, -30.5, width, height + 30])
         .style("font", "10px sans-serif");
 
