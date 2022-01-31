@@ -118,10 +118,33 @@ Output file: /data-manipulation/derived-data/country-data.json
 
 > ### MehrinAzan
 > #### Tasks:
+>   **Data Wrangling:**
+> - Derive all ingredients from recipes using OpenRefine 
+> - Manually create categories for all ingredients and manually place every ingredient in its corresponding category using OpenRefine (10,000+ ingredients in total)
+> - Create a data structure containing counts for how often each ingredient is used in recipes of each cuisine and region 
+>   and assigned them to their corresponding categories
+> - Checked for plurals in ingredients while placing them in categories
+> - Removed unnecessary data included in ingredient data (such as cooking tools etc.)
+> - the script for deriving the category data is [here](data-manipulation/conversion-scripts/cuisine_categories.ipynb)
+
+
+>**Visualisations:**\
+>  ***Tree Map*** 
+>  - Implemented tree map to make compatible with hierarchical .json data.
+>  - Added zoom functionality according to hierarchy where each tile size represents the size of the counts
+>  - Aggregated data with identical names 
+>  - Added zoom out functionality
+>  - Added fade within zoom where new tiles fade in onto old tiles, and fade out while zooming out
+>  <img width="60%" alt="screenshot_treemap" src="https://raw.githubusercontent.com/SirMaik/Visualizing-Recipes/main/img/screenshot_treemap.png">  
+>  - Implemented visualisation to project
+>
 > 
+> **Findings**:
+> - OpenRefine is not as practical as it was assumed to be and sorting data into categories was an extremely time-consuming task that stretched over weeks
+> - Vegetables, dairy and spices tend to be used the most in different cuisines.
+> - Almost every cuisine uses spice more than any other ingredient.
+> - Cultural eating habits are evident, i.e. more oil used in Asian cuisines and hardly any alcohol used in Middle-Eastern cuisines.
 > 
-> 
-> Findings:
 
 ##
 
