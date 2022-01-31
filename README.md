@@ -135,12 +135,14 @@ Output file: /data-manipulation/derived-data/country-data.json
 >  - Aggregated data with identical names 
 >  - Added zoom out functionality
 >  - Added fade within zoom where new tiles fade in onto old tiles, and fade out while zooming out
->  <img width="60%" alt="screenshot_treemap" src="https://raw.githubusercontent.com/SirMaik/Visualizing-Recipes/main/img/screenshot_treemap.png">  
 >  - Implemented visualisation to project
+>  <img width="60%" alt="screenshot_treemap" src="https://raw.githubusercontent.com/SirMaik/Visualizing-Recipes/main/img/screenshot_treemap.png">  
+>  
 >
 > 
 > **Findings**:
 > - OpenRefine is not as practical as it was assumed to be and sorting data into categories was an extremely time-consuming task that stretched over weeks
+> About visualisation:
 > - Vegetables, dairy and spices tend to be used the most in different cuisines.
 > - Almost every cuisine uses spice more than any other ingredient.
 > - Cultural eating habits are evident, i.e. more oil used in Asian cuisines and hardly any alcohol used in Middle-Eastern cuisines.
